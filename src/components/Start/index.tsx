@@ -138,7 +138,7 @@ const Start = () => {
 
     // Determine whether the program is ready to start.
     const handleReady = () => {
-        bsc.setReadyStatus(bsc.settings.property1)
+        bsc.setReadyStatus(bsc.settings.deck.main.length !== 0 || bsc.settings.deck.extra.length !== 0)
     }
 
     return null
