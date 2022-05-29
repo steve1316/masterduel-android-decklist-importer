@@ -1,11 +1,11 @@
-package com.example.cv_bot_template.utils
+package com.steve1316.masterduel_android_decklist_importer.utils
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
-import com.example.cv_bot_template.MainActivity.loggerTag
+import com.steve1316.masterduel_android_decklist_importer.MainActivity.loggerTag
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File

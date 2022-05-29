@@ -1,4 +1,4 @@
-package com.example.cv_bot_template.utils
+package com.steve1316.masterduel_android_decklist_importer.utils
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -8,8 +8,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import com.example.cv_bot_template.MainActivity
-import com.example.cv_bot_template.R
+import com.steve1316.masterduel_android_decklist_importer.MainActivity
+import com.steve1316.masterduel_android_decklist_importer.R
 
 /**
  * Contains the utility functions for creating a Notification.

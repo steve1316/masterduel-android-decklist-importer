@@ -1,4 +1,4 @@
-package com.example.cv_bot_template.utils
+package com.steve1316.masterduel_android_decklist_importer.utils
 
 import android.annotation.SuppressLint
 import android.app.Service
@@ -17,10 +17,10 @@ import android.view.WindowManager
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.preference.PreferenceManager
-import com.example.cv_bot_template.MainActivity.loggerTag
-import com.example.cv_bot_template.R
-import com.example.cv_bot_template.StartModule
-import com.example.cv_bot_template.bot.Game
+import com.steve1316.masterduel_android_decklist_importer.MainActivity.loggerTag
+import com.steve1316.masterduel_android_decklist_importer.R
+import com.steve1316.masterduel_android_decklist_importer.StartModule
+import com.steve1316.masterduel_android_decklist_importer.bot.Game
 import kotlinx.coroutines.runBlocking
 import kotlin.concurrent.thread
 import kotlin.math.roundToInt

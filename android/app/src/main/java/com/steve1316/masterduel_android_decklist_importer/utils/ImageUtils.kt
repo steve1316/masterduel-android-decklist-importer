@@ -1,14 +1,12 @@
-package com.example.cv_bot_template.utils
+package com.steve1316.masterduel_android_decklist_importer.utils
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.util.Log
-import androidx.preference.PreferenceManager
-import com.example.cv_bot_template.MainActivity
-import com.example.cv_bot_template.bot.Game
+import com.steve1316.masterduel_android_decklist_importer.MainActivity
+import com.steve1316.masterduel_android_decklist_importer.bot.Game
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
@@ -716,7 +714,7 @@ class ImageUtils(context: Context, private val game: Game) {
 		game.printToLog("[INFO] Training file loaded.\n", tag = tag)
 		
 		// Read in the new screenshot and crop it.
-		var cvImage = Imgcodecs.imread("${matchFilePath}/source.png", Imgcodecs.IMREAD_GRAYSCALE)
+		var cvImage = Imgcodecs.imread("$matchFilePath/source.png", Imgcodecs.IMREAD_GRAYSCALE)
 		cvImage = cvImage.submat(0, 500, 0, 500)
 		
 		// Save the cropped image before converting it to black and white in order to troubleshoot issues related to differing device sizes and cropping.

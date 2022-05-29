@@ -1,4 +1,4 @@
-package com.example.cv_bot_template;
+package com.steve1316.masterduel_android_decklist_importer;
 
 import androidx.annotation.NonNull;
 

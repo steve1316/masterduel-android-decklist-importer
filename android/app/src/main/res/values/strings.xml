@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Example CV Bot Template</string>
+    <string name="app_name">Master Duel Android Decklist Importer</string>
 
     <string name="accessibility_service_label">Accessibility Service for GAA</string>
     <string name="accessibility_service_description">This is the Accessibility Service that will allow the bot process to interact with the screen

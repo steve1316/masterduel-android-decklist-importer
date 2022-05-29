@@ -1,4 +1,4 @@
-package com.example.cv_bot_template.utils
+package com.steve1316.masterduel_android_decklist_importer.utils
 
 import android.content.BroadcastReceiver
 import android.content.Context

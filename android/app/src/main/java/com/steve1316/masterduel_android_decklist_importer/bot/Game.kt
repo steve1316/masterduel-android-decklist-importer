@@ -1,15 +1,13 @@
-package com.example.cv_bot_template.bot
+package com.steve1316.masterduel_android_decklist_importer.bot
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.util.Log
-import androidx.preference.PreferenceManager
-import com.example.cv_bot_template.MainActivity.loggerTag
-import com.example.cv_bot_template.data.ConfigData
-import com.example.cv_bot_template.utils.DiscordUtils
-import com.example.cv_bot_template.utils.ImageUtils
-import com.example.cv_bot_template.utils.MessageLog
-import com.example.cv_bot_template.utils.MyAccessibilityService
+import com.steve1316.masterduel_android_decklist_importer.MainActivity.loggerTag
+import com.steve1316.masterduel_android_decklist_importer.data.ConfigData
+import com.steve1316.masterduel_android_decklist_importer.utils.DiscordUtils
+import com.steve1316.masterduel_android_decklist_importer.utils.ImageUtils
+import com.steve1316.masterduel_android_decklist_importer.utils.MessageLog
+import com.steve1316.masterduel_android_decklist_importer.utils.MyAccessibilityService
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import java.util.concurrent.TimeUnit

@@ -1,10 +1,10 @@
-package com.example.cv_bot_template.data
+package com.steve1316.masterduel_android_decklist_importer.data
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import androidx.preference.PreferenceManager
-import com.example.cv_bot_template.MainActivity.loggerTag
+import com.steve1316.masterduel_android_decklist_importer.MainActivity.loggerTag
 
 class ConfigData(myContext: Context) {
 	private val tag = "${loggerTag}ConfigData"

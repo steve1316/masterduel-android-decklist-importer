@@ -1,6 +1,6 @@
-package com.example.cv_bot_template;
+package com.steve1316.masterduel_android_decklist_importer;
 
-import static com.example.cv_bot_template.MainActivity.loggerTag;
+import static com.steve1316.masterduel_android_decklist_importer.MainActivity.loggerTag;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -13,8 +13,8 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.example.cv_bot_template.utils.MediaProjectionService;
-import com.example.cv_bot_template.utils.MyAccessibilityService;
+import com.steve1316.masterduel_android_decklist_importer.utils.MediaProjectionService;
+import com.steve1316.masterduel_android_decklist_importer.utils.MyAccessibilityService;
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactApplicationContext;

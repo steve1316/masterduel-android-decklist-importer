@@ -1,4 +1,4 @@
-package com.example.cv_bot_template;
+package com.steve1316.masterduel_android_decklist_importer;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -30,7 +30,7 @@ public class MainActivity extends ReactActivity {
         // Set up the app updater to check for the latest update from GitHub.
         new AppUpdater(this)
                 .setUpdateFrom(UpdateFrom.XML)
-                .setUpdateXML("https://raw.githubusercontent.com/steve1316/android-cv-bot-template/main/android/app/update.xml")
+                .setUpdateXML("https://raw.githubusercontent.com/steve1316/masterduel-android-decklist-importer/main/android/app/update.xml")
                 .start();
 
         // Load OpenCV native library. This will throw a "E/OpenCV/StaticHelper: OpenCV error: Cannot load info library for OpenCV". It is safe to
@@ -44,7 +44,7 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "CV Bot Template";
+        return "Master Duel Android Decklist Importer";
     }
 
     @Override
