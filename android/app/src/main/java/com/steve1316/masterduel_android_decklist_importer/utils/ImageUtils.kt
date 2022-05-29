@@ -27,7 +27,7 @@ import java.text.DecimalFormat
  * Utility functions for image processing via CV like OpenCV.
  */
 class ImageUtils(context: Context, private val game: Game) {
-	private val tag: String = "[${MainActivity.loggerTag}]ImageUtils"
+	private val tag: String = "${MainActivity.loggerTag}ImageUtils"
 	private var myContext = context
 	
 	private val matchMethod: Int = Imgproc.TM_CCOEFF_NORMED

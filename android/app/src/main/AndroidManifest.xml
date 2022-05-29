@@ -48,7 +48,7 @@
 
         <!--The Accessibility Service that controls gestures on the screen.-->
         <service
-            android:name="com.steve1316.masterduel_android_decklist_importer.MyAccessibilityService"
+            android:name=".utils.MyAccessibilityService"
             android:foregroundServiceType="mediaProjection"
             android:label="@string/accessibility_service_label"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
@@ -63,15 +63,15 @@
 
         <!--The MediaProjection service that controls taking screenshots of the screen.-->
         <service
-            android:name="com.steve1316.masterduel_android_decklist_importer.utils.MediaProjectionService"
+            android:name=".utils.MediaProjectionService"
             android:foregroundServiceType="mediaProjection" />
 
         <!--Bot Service that will automate the specified workflow.-->
-        <service android:name="com.steve1316.masterduel_android_decklist_importer.utils.BotService" />
+        <service android:name=".utils.BotService" />
 
         <!--Receiver that will send the "STOP" Intent to MediaProjection Service when the action button on the Notification is tapped.-->
         <receiver
-            android:name="com.steve1316.masterduel_android_decklist_importer.utils.StopServiceReceiver"
+            android:name=".utils.StopServiceReceiver"
             android:enabled="true"
             android:process=":remote" />
     </application>
