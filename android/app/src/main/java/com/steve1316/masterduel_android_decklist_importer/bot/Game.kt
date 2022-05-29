@@ -3,9 +3,11 @@ package com.steve1316.masterduel_android_decklist_importer.bot
 import android.content.Context
 import android.util.Log
 import com.steve1316.masterduel_android_decklist_importer.MainActivity.loggerTag
+import com.steve1316.masterduel_android_decklist_importer.data.CardNameData
 import com.steve1316.masterduel_android_decklist_importer.data.ConfigData
-import com.steve1316.masterduel_android_decklist_importer.utils.DiscordUtils
+import com.steve1316.masterduel_android_decklist_importer.data.Deck
 import com.steve1316.masterduel_android_decklist_importer.utils.ImageUtils
+import com.steve1316.masterduel_android_decklist_importer.utils.MediaProjectionService
 import com.steve1316.masterduel_android_decklist_importer.utils.MessageLog
 import com.steve1316.masterduel_android_decklist_importer.utils.MyAccessibilityService
 import kotlinx.coroutines.delay
@@ -83,21 +85,28 @@ class Game(private val myContext: Context) {
 	 */
 	fun start(): Boolean {
 		val startTime: Long = System.currentTimeMillis()
-		
-		if (configData.debugMode) {
-			printToLog("\n[DEBUG] I am starting here but as a debugging message!")
+
+		// Check rotation of the Virtual Display and if it is stuck in Portrait Mode, destroy and remake it.
+		if (MediaProjectionService.displayHeight > MediaProjectionService.displayWidth) {
+			Log.d(tag, "Virtual display is not correct. Recreating it now...")
+			MediaProjectionService.forceGenerateVirtualDisplay(myContext)
 		} else {
-			printToLog("\n[INFO] I am starting here!")
+			Log.d(tag, "Skipping recreation of Virtual Display as it is correct.")
 		}
-		
-		printToLog("\n[INFO] I am ending here!")
-		
+
+		CardNameData.name = Deck.main[0].name
+		val location = imageUtils.findImage("text_search")!!
+		gestureUtils.tap(location.x, location.y, "text_search", taps = 2)
+
+		wait(1.0)
+
+		// Submit the search query by tapping the same location again to close the keyboard. This is the same as pressing ENTER.
+		gestureUtils.tap(location.x, location.y, "text_search")
+
 		val endTime: Long = System.currentTimeMillis()
 		val runTime: Long = endTime - startTime
 		Log.d(tag, "Total Runtime: ${runTime}ms")
-		
-		DiscordUtils.queue.add("Total Runtime: ${runTime}ms")
-		
+
 		return true
 	}
 }
