@@ -1,10 +1,12 @@
 import Ionicons from "react-native-vector-icons/Ionicons"
 import React, { useContext, useEffect, useState } from "react"
 import SnackBar from "rn-snackbar-component"
-import { BotStateContext } from "../../context/BotStateContext"
+import { BotStateContext, Cards, Deck } from "../../context/BotStateContext"
 import { ScrollView, StyleSheet, View } from "react-native"
-import { Divider } from "react-native-elements"
-import CustomCheckbox from "../../components/CustomCheckbox"
+import TitleDivider from "../../components/TitleDivider"
+import CustomButton from "../../components/CustomButton"
+import DecklistMessageLog from "../../components/DecklistMessageLog"
+import { TextInput } from "react-native-paper"
 
 const styles = StyleSheet.create({
     root: {
@@ -84,14 +86,37 @@ const Settings = () => {
     //////////////////////////////////////////////////
     // Rendering
 
+    const renderInputURLSettings = () => {
+        return (
+            <View>
+                <TitleDivider
+                    title="Enter the Decklist URL"
+                    subtitle="Enter the URL from masterduelmeta.com and then press the Analyze button to fetch the decklist in text form. If successful, this will enable the Start button on the Home page."
+                    hasIcon={true}
+                    iconName="twitter"
+                    iconColor="#1da1f2"
+                />
+
+                <TextInput
+                    label="Master Duel Meta Decklist URL"
+                    right={<TextInput.Icon name="close" onPress={() => bsc.setSettings({ ...bsc.settings, url: "" })} />}
+                    mode="outlined"
+                    multiline
+                    value={bsc.settings.url}
+                    onChangeText={(value: string) => bsc.setSettings({ ...bsc.settings, url: value })}
+                    autoComplete={false}
+                />
+
+                <CustomButton title="Analyze Decklist" width={200} borderRadius={20} onPress={() => fetchData()} />
+
+                <DecklistMessageLog />
+            </View>
+        )
+    }
+
     return (
         <View style={styles.root}>
-            <CustomCheckbox
-                isChecked={bsc.settings.property1}
-                onPress={() => bsc.setSettings({ ...bsc.settings, property1: !bsc.settings.property1 })}
-                text="I am a Checkbox"
-                subtitle="Check this to enable the Start button on the Home Page"
-            />
+            <ScrollView>{renderInputURLSettings()}</ScrollView>
 
             <SnackBar
                 visible={snackbarOpen}
@@ -102,12 +127,6 @@ const Settings = () => {
                 containerStyle={{ backgroundColor: bsc.readyStatus ? "green" : "red", borderRadius: 10 }}
                 native={false}
             />
-
-            <ScrollView nestedScrollEnabled={true} contentContainerStyle={{ flexGrow: 1 }}>
-                <View style={{ marginHorizontal: 20 }}>
-                    <Divider />
-                </View>
-            </ScrollView>
         </View>
     )
 }

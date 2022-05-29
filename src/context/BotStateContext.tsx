@@ -1,12 +1,29 @@
 import React, { createContext, useState } from "react"
 
+export interface Deck {
+    main: Cards[]
+    extra: Cards[]
+}
+
+export interface Cards {
+    card: {
+        name: string
+    }
+    amount: number
+}
+
 export interface Settings {
-    property1: boolean
+    deck: Deck
+    url: string
 }
 
 // Set the default settings.
 export const defaultSettings: Settings = {
-    property1: false,
+    deck: {
+        main: [],
+        extra: [],
+    },
+    url: "",
 }
 
 interface IProviderProps {
