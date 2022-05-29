@@ -93,8 +93,8 @@ const Settings = () => {
                     title="Enter the Decklist URL"
                     subtitle="Enter the URL from masterduelmeta.com and then press the Analyze button to fetch the decklist in text form. If successful, this will enable the Start button on the Home page."
                     hasIcon={true}
-                    iconName="twitter"
-                    iconColor="#1da1f2"
+                    iconName="bag-personal"
+                    iconColor="#000"
                 />
 
                 <TextInput

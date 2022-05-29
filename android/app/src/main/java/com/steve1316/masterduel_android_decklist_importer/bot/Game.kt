@@ -17,13 +17,13 @@ import java.util.concurrent.TimeUnit
  */
 class Game(private val myContext: Context) {
 	private val tag: String = "${loggerTag}Game"
-	
+
 	private val startTime: Long = System.currentTimeMillis()
-	
+
 	val configData: ConfigData = ConfigData(myContext)
 	val imageUtils: ImageUtils = ImageUtils(myContext, this)
 	val gestureUtils: MyAccessibilityService = MyAccessibilityService.getInstance()
-	
+
 	/**
 	 * Returns a formatted string of the elapsed time since the bot started as HH:MM:SS format.
 	 *
@@ -33,7 +33,7 @@ class Game(private val myContext: Context) {
 	 */
 	private fun printTime(): String {
 		val elapsedMillis: Long = System.currentTimeMillis() - startTime
-		
+
 		return String.format(
 			"%02d:%02d:%02d",
 			TimeUnit.MILLISECONDS.toHours(elapsedMillis),
@@ -41,7 +41,7 @@ class Game(private val myContext: Context) {
 			TimeUnit.MILLISECONDS.toSeconds(elapsedMillis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(elapsedMillis))
 		)
 	}
-	
+
 	/**
 	 * Print the specified message to debug console and then saves the message to the log.
 	 *
@@ -55,7 +55,7 @@ class Game(private val myContext: Context) {
 		} else {
 			Log.e(tag, message)
 		}
-		
+
 		// Remove the newline prefix if needed and place it where it should be.
 		if (message.startsWith("\n")) {
 			val newMessage = message.removePrefix("\n")
@@ -64,7 +64,7 @@ class Game(private val myContext: Context) {
 			MessageLog.messageLog.add(printTime() + " " + message)
 		}
 	}
-	
+
 	/**
 	 * Wait the specified seconds to account for ping or loading.
 	 *
@@ -75,7 +75,7 @@ class Game(private val myContext: Context) {
 			delay((seconds * 1000).toLong())
 		}
 	}
-	
+
 	/**
 	 * Bot will begin automation here.
 	 *
