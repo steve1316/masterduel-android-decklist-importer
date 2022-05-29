@@ -26,6 +26,60 @@ const Settings = () => {
         setTimeout(() => setSnackbarOpen(false), 1500)
     }, [bsc.readyStatus])
 
+    // Fetch the decklist from the provided url.
+    const fetchData = async () => {
+        const link = bsc.settings.url
+        const newLink = link.split(link.substring(0, link.indexOf("top-decks/")) + "top-decks/")[1]
+        const apiUrl = `https://www.masterduelmeta.com/api/v1/top-decks?url=/${newLink}/&amp;limit=1`
+
+        try {
+            // Get the JSON object from the API.
+            const response = await fetch(apiUrl)
+            const jsonString = await response.text()
+            const parsedObject = JSON.parse(jsonString)
+            const deck = parsedObject[0] as Deck
+
+            const newDeck: Deck = {
+                main: [],
+                extra: [],
+            }
+
+            // Now iterate through main and extra arrays to constuct the deck.
+            deck.main.forEach((data) => {
+                let newCard: Cards = {
+                    card: {
+                        name: data.card.name,
+                    },
+                    amount: data.amount,
+                }
+
+                newDeck.main.push(newCard)
+            })
+
+            deck.extra.forEach((data) => {
+                let newCard: Cards = {
+                    card: {
+                        name: data.card.name,
+                    },
+                    amount: data.amount,
+                }
+
+                newDeck.extra.push(newCard)
+            })
+
+            bsc.setSettings({ ...bsc.settings, deck: newDeck })
+        } catch {
+            console.warn("URL was not valid or API was changed.")
+            bsc.setSettings({
+                ...bsc.settings,
+                deck: {
+                    main: [],
+                    extra: [],
+                },
+            })
+        }
+    }
+
     //////////////////////////////////////////////////
     //////////////////////////////////////////////////
     // Rendering
