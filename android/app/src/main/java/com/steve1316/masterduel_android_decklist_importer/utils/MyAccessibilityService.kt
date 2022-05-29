@@ -66,6 +66,39 @@ class MyAccessibilityService : AccessibilityService() {
 	}
 	
 	override fun onAccessibilityEvent(event: AccessibilityEvent?) {
+		if (BotService.isRunning && event?.source != null && CardNameData.name != "" && event.source?.className.toString().contains("android.widget.EditText")) {
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+				Log.d(tag, "[DEBUG] Copying ${CardNameData.name}")
+
+				val arguments = Bundle()
+				arguments.putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE, CardNameData.name)
+
+				if (event.source.performAction(AccessibilityNodeInfo.ACTION_SET_TEXT, arguments)) {
+					Log.d(tag, "[DEBUG] Pasted ${CardNameData.name}")
+				} else {
+					Log.d(tag, "[DEBUG] Failed to paste ${CardNameData.name}")
+				}
+			} else {
+				Log.d(tag, "[LEGACY] Copying ${CardNameData.name}")
+				event.source.performAction(AccessibilityNodeInfo.ACTION_LONG_CLICK)
+
+				val clipboard = myContext.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+				val clip = ClipData.newPlainText("Room Code", CardNameData.name)
+				clipboard.setPrimaryClip(clip)
+
+				Log.d(tag, "[LEGACY] Clipboard contents: ${clipboard.primaryClip}")
+
+				if (event.source.performAction(AccessibilityNodeInfo.ACTION_PASTE)) {
+					Log.d(tag, "[LEGACY] Pasted ${CardNameData.name}")
+				} else {
+					Log.d(tag, "[LEGACY] Failed to paste ${CardNameData.name}")
+				}
+			}
+
+			// Reset the data for the clipboard.
+			CardNameData.name = ""
+		}
+
 		return
 	}
 	
