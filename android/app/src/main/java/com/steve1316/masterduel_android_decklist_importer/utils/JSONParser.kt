@@ -28,14 +28,19 @@ class JSONParser {
 		//////////////////////////////////////////////////////////////////////////
 
 		try {
+			Deck.main.clear()
+			Deck.extra.clear()
+
 			val deckObj = jObj.getJSONObject("deck")
 			deckObj.keys().forEach { key ->
 				val jsonArray = deckObj.get(key) as JSONArray
 
 				// Iterate through the entire JSONArray and start setting data into the Deck data class.
 				var i = 0
-				while (i < 1) {
+				while (i < jsonArray.length()) {
 					val jsonObj = jsonArray.getJSONObject(i)
+
+					Log.d(loggerTag, "$key: $jsonObj")
 
 					val cardObj = jsonObj.getJSONObject("card")
 					val cardName = cardObj.getString("name")

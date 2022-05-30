@@ -3,6 +3,7 @@ package com.steve1316.masterduel_android_decklist_importer.bot
 import android.content.Context
 import android.util.Log
 import com.steve1316.masterduel_android_decklist_importer.MainActivity.loggerTag
+import com.steve1316.masterduel_android_decklist_importer.data.CardList
 import com.steve1316.masterduel_android_decklist_importer.data.CardNameData
 import com.steve1316.masterduel_android_decklist_importer.data.ConfigData
 import com.steve1316.masterduel_android_decklist_importer.data.Deck
@@ -79,6 +80,137 @@ class Game(private val myContext: Context) {
 	}
 
 	/**
+	 * Check rotation of the Virtual Display and if it is stuck in Portrait Mode, destroy and remake it.
+	 *
+	 */
+	private fun landscapeCheck() {
+		if (MediaProjectionService.displayHeight > MediaProjectionService.displayWidth) {
+			Log.d(tag, "Virtual display is not correct. Recreating it now...")
+			MediaProjectionService.forceGenerateVirtualDisplay(myContext)
+		} else {
+			Log.d(tag, "Skipping recreation of Virtual Display as it is correct.")
+		}
+	}
+
+	/**
+	 * Perform an initialization check at the start.
+	 *
+	 * @return True if the required image asset is found on the screen.
+	 */
+	private fun initializationCheck(): Boolean {
+		printToLog("[INIT] Performing an initialization check...")
+		return (imageUtils.findImage("trash") != null)
+	}
+
+	/**
+	 * Search for the card in the main/extra deck depending on where the iteration is at right now.
+	 *
+	 * @param index The index in the main/extra deck arraylists.
+	 * @param isMainDeck Indicates which deck to iterate through. Defaults to true for the Main Deck.
+	 * @return True if the search query for the card's name was successfully submitted.
+	 */
+	private fun searchCard(index: Int, isMainDeck: Boolean = true): Boolean {
+		// Grab the card's name.
+		if (isMainDeck) {
+			CardNameData.name = Deck.main[index].name
+		} else {
+			CardNameData.name = Deck.extra[index].name
+		}
+
+		// Activate the keyboard for the search bar.
+		val location = imageUtils.findImage("text_search")
+
+		// The Accessibility service will automatically paste the text into the field. Tapping the search bar again will close the keyboard and submit the search query.
+		return if (location != null) {
+			gestureUtils.tap(location.x, location.y, "text_search", taps = 2)
+			wait(1.0)
+
+			// Submit the search query by tapping the same location again to close the keyboard. This is the same as pressing ENTER.
+			gestureUtils.tap(location.x, location.y, "text_search")
+			wait(3.0)
+
+			true
+		} else {
+			false
+		}
+	}
+
+	/**
+	 * Process search results and if valid, adds them to the decklist.
+	 *
+	 * @param index The index in the main/extra deck arraylists.
+	 * @param isMainDeck Indicates which deck to iterate through. Defaults to true for the Main Deck.
+	 * @return True if the available search results are valid and added to the decklist.
+	 */
+	private fun processSearchResults(index: Int, isMainDeck: Boolean = true): Boolean {
+		// Check rarity of the searched card.
+		val cardName: String
+		val amount: Int
+		val rarity = if (isMainDeck) {
+			cardName = Deck.main[index].name
+			amount = Deck.main[index].amount
+			CardList.cardList[cardName]!!.rarity
+		} else {
+			cardName = Deck.extra[index].name
+			amount = Deck.extra[index].amount
+			CardList.cardList[cardName]!!.rarity
+		}
+
+		Log.d(tag, "Rarity of $cardName is $rarity")
+
+		val rarityImageFileName = when (rarity) {
+			"N" -> {
+				"normal"
+			}
+			"R" -> {
+				"rare"
+			}
+			"SR" -> {
+				"superrare"
+			}
+			"UR" -> {
+				"ultrarare"
+			}
+			else -> {
+				throw Exception("Invalid rarity name of $rarity.")
+			}
+		}
+
+		val rarityLocations = imageUtils.findAll("rarity_$rarityImageFileName", "images")
+		return if (rarityLocations.size > 3) {
+			printToLog("Skipped $cardName as there were too many matches.")
+			false
+		} else {
+			// Now add the card to the decklist.
+			// First press on the last location as that is most likely the highest finish of that card.
+			if (rarityLocations.size > 1) {
+				gestureUtils.tap(rarityLocations[rarityLocations.size - 1].x, rarityLocations[rarityLocations.size - 1].y, "rarity_$rarityImageFileName")
+				wait(0.25)
+			} else {
+				gestureUtils.tap(rarityLocations[0].x, rarityLocations[0].y, "rarity_$rarityImageFileName")
+				wait(0.25)
+			}
+
+			// Now that the description of the card is on the screen, add however many is required to the decklist.
+			val addCardLocation = imageUtils.findImage("add_card", tries = 30)!!
+			gestureUtils.tap(addCardLocation.x, addCardLocation.y, "add_card", taps = amount)
+			wait(0.25)
+
+			// Close the card description screen.
+			val exitCardLocation = imageUtils.findImage("exit_card", tries = 30)!!
+			gestureUtils.tap(exitCardLocation.x, exitCardLocation.y, "exit_card")
+			wait(0.25)
+
+			// Finally, clear the search bar.
+			val trashLocation = imageUtils.findImage("trash", tries = 30)!!
+			gestureUtils.tap(trashLocation.x, trashLocation.y, "trash")
+			wait(0.25)
+
+			true
+		}
+	}
+
+	/**
 	 * Bot will begin automation here.
 	 *
 	 * @return True if all automation goals have been met. False otherwise.
@@ -86,22 +218,29 @@ class Game(private val myContext: Context) {
 	fun start(): Boolean {
 		val startTime: Long = System.currentTimeMillis()
 
-		// Check rotation of the Virtual Display and if it is stuck in Portrait Mode, destroy and remake it.
-		if (MediaProjectionService.displayHeight > MediaProjectionService.displayWidth) {
-			Log.d(tag, "Virtual display is not correct. Recreating it now...")
-			MediaProjectionService.forceGenerateVirtualDisplay(myContext)
+		landscapeCheck()
+
+		if (initializationCheck()) {
+			// Clear any leftover search query/filters.
+			val clearLocation = imageUtils.findImage("trash", tries = 30)!!
+			gestureUtils.tap(clearLocation.x, clearLocation.y, "trash")
+			wait(1.0)
+
+			Log.d(tag, "Processing: ${Deck.main}")
+
+			var i = 0
+			while (i < Deck.main.size) {
+				// Submit the search query first.
+				searchCard(i)
+
+				// Check the rarity of the card and compare to the rarities of the cards returned from the search query.
+				processSearchResults(i)
+
+				i++
+			}
 		} else {
-			Log.d(tag, "Skipping recreation of Virtual Display as it is correct.")
+			throw Exception("Unable to detect if the bot is at the Create a Deck screen.")
 		}
-
-		CardNameData.name = Deck.main[0].name
-		val location = imageUtils.findImage("text_search")!!
-		gestureUtils.tap(location.x, location.y, "text_search", taps = 2)
-
-		wait(1.0)
-
-		// Submit the search query by tapping the same location again to close the keyboard. This is the same as pressing ENTER.
-		gestureUtils.tap(location.x, location.y, "text_search")
 
 		val endTime: Long = System.currentTimeMillis()
 		val runTime: Long = endTime - startTime
