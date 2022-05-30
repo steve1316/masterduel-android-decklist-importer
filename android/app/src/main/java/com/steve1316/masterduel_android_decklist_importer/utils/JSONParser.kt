@@ -40,8 +40,6 @@ class JSONParser {
 				while (i < jsonArray.length()) {
 					val jsonObj = jsonArray.getJSONObject(i)
 
-					Log.d(loggerTag, "$key: $jsonObj")
-
 					val cardObj = jsonObj.getJSONObject("card")
 					val cardName = cardObj.getString("name")
 					val amount = jsonObj.getInt("amount")
