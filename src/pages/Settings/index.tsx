@@ -7,6 +7,7 @@ import TitleDivider from "../../components/TitleDivider"
 import CustomButton from "../../components/CustomButton"
 import DecklistMessageLog from "../../components/DecklistMessageLog"
 import { TextInput } from "react-native-paper"
+import RNFS from "react-native-fs"
 
 const styles = StyleSheet.create({
     root: {
@@ -79,6 +80,44 @@ const Settings = () => {
                     extra: [],
                 },
             })
+        }
+
+        try {
+            const response = await fetch("https://www.masterduelmeta.com/api/v1/cards?limit")
+            const jsonString = await response.text()
+            const parsedObject = JSON.parse(jsonString)
+
+            interface CardList {
+                name: String
+                rarity: String
+            }
+
+            const newCardList: CardList[] = []
+            const convertedObject = parsedObject as CardList[]
+            convertedObject.forEach((card) => {
+                newCardList.push({ name: card.name, rarity: card.rarity })
+            })
+
+            // Now save the comprehensive card list as a JSON file in the same place as the settings.json file.
+            const path = RNFS.ExternalDirectoryPath + "/cards.json"
+            const toSave = JSON.stringify(newCardList, null, 4)
+            await RNFS.unlink(path)
+                .then(() => {
+                    console.log("cards.json file successfully deleted.")
+                })
+                .catch(() => {
+                    console.log("cards.json file does not exist so no need to delete it before saving current card list.")
+                })
+
+            await RNFS.writeFile(path, toSave)
+                .then(() => {
+                    console.log("Card list saved to ", path)
+                })
+                .catch((e) => {
+                    console.error(`Error writing settings to path ${path}: ${e}`)
+                })
+        } catch {
+            console.warn("Cards API failed to respond.")
         }
     }
 
