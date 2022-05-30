@@ -33,12 +33,10 @@ class ImageUtils(context: Context, private val game: Game) {
 	////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////
 	// Device configuration
-	private val displayWidth: Int = MediaProjectionService.displayWidth
-	private val displayHeight: Int = MediaProjectionService.displayHeight
-	private val is1080p: Boolean = (displayWidth == 1080) || (displayHeight == 1080) // 1080p Portrait or Landscape Mode.
-	val is720p: Boolean = (displayWidth == 720) || (displayHeight == 720) // 720p
-	val isTabletPortrait: Boolean = (displayWidth == 1600 && displayHeight == 2560) || (displayWidth == 2560 && displayHeight == 1600) // Galaxy Tab S7 1600x2560 Portrait Mode
-	val isTabletLandscape: Boolean = (displayWidth == 2560 && displayHeight == 1600) // Galaxy Tab S7 1600x2560 Landscape Mode
+	private val is1080p: Boolean = (MediaProjectionService.displayWidth == 1080) || (MediaProjectionService.displayHeight == 1080) // 1080p Portrait or Landscape Mode.
+	val is720p: Boolean = (MediaProjectionService.displayWidth == 720) || (MediaProjectionService.displayHeight == 720) // 720p
+	val isTabletPortrait: Boolean = (MediaProjectionService.displayWidth == 1600 && MediaProjectionService.displayHeight == 2560) || (MediaProjectionService.displayWidth == 2560 && MediaProjectionService.displayHeight == 1600) // Galaxy Tab S7 1600x2560 Portrait Mode
+	val isTabletLandscape: Boolean = (MediaProjectionService.displayWidth == 2560 && MediaProjectionService.displayHeight == 1600) // Galaxy Tab S7 1600x2560 Landscape Mode
 
 	// Scales
 	private val lowerEndScales: MutableList<Double> = mutableListOf(0.60, 0.61, 0.62, 0.63, 0.64, 0.65, 0.67, 0.68, 0.69, 0.70)
@@ -216,6 +214,13 @@ class ImageUtils(context: Context, private val game: Game) {
 	 * @return ArrayList of Point objects that represents the matches found on the source screenshot.
 	 */
 	private fun matchAll(sourceBitmap: Bitmap, templateBitmap: Bitmap, region: IntArray = intArrayOf(0, 0, 0, 0), customConfidence: Double = 0.0): ArrayList<Point> {
+		// If a custom region was specified, crop the source screenshot.
+		val srcBitmap = if (!region.contentEquals(intArrayOf(0, 0, 0, 0))) {
+			Bitmap.createBitmap(sourceBitmap, region[0], region[1], region[2], region[3])
+		} else {
+			sourceBitmap
+		}
+
 		// Scale images if the device is not 1080p which is supported by default.
 		val scales: MutableList<Double> = when {
 			customScale != 1.0 -> {
@@ -261,7 +266,7 @@ class ImageUtils(context: Context, private val game: Game) {
 			}
 
 			// Create the Mats of both source and template images.
-			Utils.bitmapToMat(sourceBitmap, sourceMat)
+			Utils.bitmapToMat(srcBitmap, sourceMat)
 			Utils.bitmapToMat(tmp, templateMat)
 
 			// Make the Mats grayscale for the source and the template.
@@ -297,8 +302,8 @@ class ImageUtils(context: Context, private val game: Game) {
 
 				// If a custom region was specified, readjust the coordinates to reflect the fullscreen source screenshot.
 				if (!region.contentEquals(intArrayOf(0, 0, 0, 0))) {
-					matchLocation.x = sourceBitmap.width - (sourceBitmap.width - (region[0] + matchLocation.x))
-					matchLocation.y = sourceBitmap.height - (sourceBitmap.height - (region[1] + matchLocation.y))
+					matchLocation.x = region[0] + matchLocation.x
+					matchLocation.y = region[1] + matchLocation.y
 				}
 
 				matchLocations.add(matchLocation)
@@ -315,8 +320,8 @@ class ImageUtils(context: Context, private val game: Game) {
 
 				// If a custom region was specified, readjust the coordinates to reflect the fullscreen source screenshot.
 				if (!region.contentEquals(intArrayOf(0, 0, 0, 0))) {
-					matchLocation.x = sourceBitmap.width - (sourceBitmap.width - (region[0] + matchLocation.x))
-					matchLocation.y = sourceBitmap.height - (sourceBitmap.height - (region[1] + matchLocation.y))
+					matchLocation.x = region[0] + matchLocation.x
+					matchLocation.y = region[1] + matchLocation.y
 				}
 
 				matchLocations.add(matchLocation)
@@ -350,8 +355,8 @@ class ImageUtils(context: Context, private val game: Game) {
 
 				// If a custom region was specified, readjust the coordinates to reflect the fullscreen source screenshot.
 				if (!region.contentEquals(intArrayOf(0, 0, 0, 0))) {
-					tempMatchLocation.x = sourceBitmap.width - (sourceBitmap.width - (region[0] + tempMatchLocation.x))
-					tempMatchLocation.y = sourceBitmap.height - (sourceBitmap.height - (region[1] + tempMatchLocation.y))
+					tempMatchLocation.x = region[0] + tempMatchLocation.x
+					tempMatchLocation.y = region[1] + tempMatchLocation.y
 				}
 
 				if (!matchLocations.contains(tempMatchLocation) && !matchLocations.contains(Point(tempMatchLocation.x + 1.0, tempMatchLocation.y)) &&
@@ -379,8 +384,8 @@ class ImageUtils(context: Context, private val game: Game) {
 
 				// If a custom region was specified, readjust the coordinates to reflect the fullscreen source screenshot.
 				if (!region.contentEquals(intArrayOf(0, 0, 0, 0))) {
-					tempMatchLocation.x = sourceBitmap.width - (sourceBitmap.width - (region[0] + tempMatchLocation.x))
-					tempMatchLocation.y = sourceBitmap.height - (sourceBitmap.height - (region[1] + tempMatchLocation.y))
+					tempMatchLocation.x = region[0] + tempMatchLocation.x
+					tempMatchLocation.y = region[1] + tempMatchLocation.y
 				}
 
 				if (!matchLocations.contains(tempMatchLocation) && !matchLocations.contains(Point(tempMatchLocation.x + 1.0, tempMatchLocation.y)) &&
