@@ -4,6 +4,8 @@ import android.content.Context
 import android.util.Log
 import com.steve1316.masterduel_android_decklist_importer.MainActivity.loggerTag
 import com.steve1316.masterduel_android_decklist_importer.data.Card
+import com.steve1316.masterduel_android_decklist_importer.data.CardList
+import com.steve1316.masterduel_android_decklist_importer.data.CardLite
 import com.steve1316.masterduel_android_decklist_importer.data.Deck
 import org.json.JSONArray
 import org.json.JSONObject
@@ -49,6 +51,22 @@ class JSONParser {
 
 					i++
 				}
+			}
+		} catch (e: Exception) {
+			Log.e(loggerTag, e.toString())
+		}
+
+		// Now parse through the entire comprehensive card list.
+		val cardListString = myContext.assets.open("data/cards.json").bufferedReader().use { it.readText() }
+		val cardListJSONArray = JSONArray(cardListString)
+		try {
+			var i = 0
+			while (i < cardListJSONArray.length()) {
+				val tempObj = cardListJSONArray.getJSONObject(i)
+				val newCardLite = CardLite(tempObj.getString("name"), tempObj.getString("rarity"))
+				CardList.cardList[newCardLite.name] = newCardLite
+
+				i++
 			}
 		} catch (e: Exception) {
 			Log.e(loggerTag, e.toString())
