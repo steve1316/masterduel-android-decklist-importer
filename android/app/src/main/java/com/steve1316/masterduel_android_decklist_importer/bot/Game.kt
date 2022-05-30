@@ -122,12 +122,12 @@ class Game(private val myContext: Context) {
 
 		// The Accessibility service will automatically paste the text into the field. Tapping the search bar again will close the keyboard and submit the search query.
 		return if (location != null) {
-			gestureUtils.tap(location.x, location.y, "text_search", taps = 2)
+			gestureUtils.tap(location.x, location.y, "text_search")
 			wait(1.0)
 
 			// Submit the search query by tapping the same location again to close the keyboard. This is the same as pressing ENTER.
 			gestureUtils.tap(location.x, location.y, "text_search")
-			wait(3.0)
+			wait(2.0)
 
 			true
 		} else {
@@ -176,38 +176,59 @@ class Game(private val myContext: Context) {
 			}
 		}
 
-		val rarityLocations = imageUtils.findAll("rarity_$rarityImageFileName", "images")
+		val rarityLocations = imageUtils.findAll(
+			"rarity_$rarityImageFileName", "images", region = intArrayOf(
+				MediaProjectionService.displayWidth / 2, 0, MediaProjectionService.displayWidth / 2,
+				MediaProjectionService.displayHeight
+			)
+		)
+
+		Log.d(tag, "Rarity locations found: $rarityLocations")
+
 		return if (rarityLocations.size > 3) {
 			printToLog("Skipped $cardName as there were too many matches.")
 			false
 		} else {
 			// Now add the card to the decklist.
-			// First press on the last location as that is most likely the highest finish of that card.
+			// First press on the last location as that is most likely the highest finish of that card to open up their description screen.
 			if (rarityLocations.size > 1) {
 				gestureUtils.tap(rarityLocations[rarityLocations.size - 1].x, rarityLocations[rarityLocations.size - 1].y, "rarity_$rarityImageFileName")
 				wait(0.25)
+			} else if (rarityLocations.size == 0) {
+				exitCardDescriptionScreen()
+				return false
 			} else {
 				gestureUtils.tap(rarityLocations[0].x, rarityLocations[0].y, "rarity_$rarityImageFileName")
 				wait(0.25)
 			}
 
+			Log.d(tag, "Adding card $amount times.")
+
 			// Now that the description of the card is on the screen, add however many is required to the decklist.
 			val addCardLocation = imageUtils.findImage("add_card", tries = 30)!!
-			gestureUtils.tap(addCardLocation.x, addCardLocation.y, "add_card", taps = amount)
-			wait(0.25)
+			var i = 0
+			while (i < amount) {
+				gestureUtils.tap(addCardLocation.x, addCardLocation.y, "add_card")
+				wait(0.25)
+				i++
+			}
 
-			// Close the card description screen.
-			val exitCardLocation = imageUtils.findImage("exit_card", tries = 30)!!
-			gestureUtils.tap(exitCardLocation.x, exitCardLocation.y, "exit_card")
-			wait(0.25)
-
-			// Finally, clear the search bar.
-			val trashLocation = imageUtils.findImage("trash", tries = 30)!!
-			gestureUtils.tap(trashLocation.x, trashLocation.y, "trash")
-			wait(0.25)
+			exitCardDescriptionScreen()
 
 			true
 		}
+	}
+
+	private fun exitCardDescriptionScreen() {
+		// Close the card description screen.
+		val exitCardLocation = imageUtils.findImage("exit_card", tries = 30)!!
+		gestureUtils.tap(exitCardLocation.x, exitCardLocation.y, "exit_card")
+		wait(0.25)
+
+		// Finally, clear the search bar.
+		val trashLocation = imageUtils.findImage("trash", tries = 30)!!
+		gestureUtils.tap(trashLocation.x, trashLocation.y, "trash")
+		wait(0.25)
 	}
 
 	/**
@@ -225,8 +246,6 @@ class Game(private val myContext: Context) {
 			val clearLocation = imageUtils.findImage("trash", tries = 30)!!
 			gestureUtils.tap(clearLocation.x, clearLocation.y, "trash")
 			wait(1.0)
-
-			Log.d(tag, "Processing: ${Deck.main}")
 
 			var i = 0
 			while (i < Deck.main.size) {
