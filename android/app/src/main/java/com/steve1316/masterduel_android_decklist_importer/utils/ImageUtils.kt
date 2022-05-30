@@ -3,24 +3,13 @@ package com.steve1316.masterduel_android_decklist_importer.utils
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.Color
 import android.util.Log
 import com.steve1316.masterduel_android_decklist_importer.MainActivity
 import com.steve1316.masterduel_android_decklist_importer.bot.Game
-import com.google.mlkit.vision.common.InputImage
-import com.google.mlkit.vision.text.TextRecognition
-import com.google.mlkit.vision.text.latin.TextRecognizerOptions
-import com.googlecode.tesseract.android.TessBaseAPI
 import org.opencv.android.Utils
 import org.opencv.core.*
 import org.opencv.imgcodecs.Imgcodecs
 import org.opencv.imgproc.Imgproc
-import java.io.File
-import java.io.FileOutputStream
-import java.io.IOException
-import java.io.InputStream
-import java.net.HttpURLConnection
-import java.net.URL
 import java.text.DecimalFormat
 
 /**
@@ -32,8 +21,6 @@ class ImageUtils(context: Context, private val game: Game) {
 
 	private val matchMethod: Int = Imgproc.TM_CCOEFF_NORMED
 	private val decimalFormat = DecimalFormat("#.###")
-	private val textRecognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
-	private val tessBaseAPI: TessBaseAPI
 
 	////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////
@@ -48,10 +35,10 @@ class ImageUtils(context: Context, private val game: Game) {
 	// Device configuration
 	private val displayWidth: Int = MediaProjectionService.displayWidth
 	private val displayHeight: Int = MediaProjectionService.displayHeight
-	private val isDefault: Boolean = (displayWidth == 1080) || (displayHeight == 1080) // 1080p Portrait or Landscape Mode.
-	val isLowerEnd: Boolean = (displayWidth == 720) || (displayHeight == 720) // 720p
-	val isTablet: Boolean = (displayWidth == 1600 && displayHeight == 2560) || (displayWidth == 2560 && displayHeight == 1600) // Galaxy Tab S7 1600x2560 Portrait Mode
-	val isLandscape: Boolean = (displayWidth == 2560 && displayHeight == 1600) // Galaxy Tab S7 1600x2560 Landscape Mode
+	private val is1080p: Boolean = (displayWidth == 1080) || (displayHeight == 1080) // 1080p Portrait or Landscape Mode.
+	val is720p: Boolean = (displayWidth == 720) || (displayHeight == 720) // 720p
+	val isTabletPortrait: Boolean = (displayWidth == 1600 && displayHeight == 2560) || (displayWidth == 2560 && displayHeight == 1600) // Galaxy Tab S7 1600x2560 Portrait Mode
+	val isTabletLandscape: Boolean = (displayWidth == 2560 && displayHeight == 1600) // Galaxy Tab S7 1600x2560 Landscape Mode
 
 	// Scales
 	private val lowerEndScales: MutableList<Double> = mutableListOf(0.60, 0.61, 0.62, 0.63, 0.64, 0.65, 0.67, 0.68, 0.69, 0.70)
@@ -83,10 +70,6 @@ class ImageUtils(context: Context, private val game: Game) {
 		// Set the file path to the /files/temp/ folder.
 		val matchFilePath: String = myContext.getExternalFilesDir(null)?.absolutePath + "/temp"
 		updateMatchFilePath(matchFilePath)
-
-		// Uncomment the below line to initialize Tesseract for the purposes of OCR text recognition.
-		// initTesseract("SET FILE NAME OF .TRAINEDDATA FOR TESSERACT INITIALIZATION HERE")
-		tessBaseAPI = TessBaseAPI()
 	}
 
 	/**
@@ -120,16 +103,16 @@ class ImageUtils(context: Context, private val game: Game) {
 			customScale != 1.0 && useSingleScale -> {
 				mutableListOf(customScale)
 			}
-			isLowerEnd -> {
+			is720p -> {
 				lowerEndScales.toMutableList()
 			}
-			!isLowerEnd && !isDefault && !isTablet -> {
+			!is720p && !is1080p && !isTabletPortrait -> {
 				middleEndScales.toMutableList()
 			}
-			isTablet && isLandscape -> {
+			isTabletPortrait && isTabletLandscape -> {
 				tabletLandscapeScales.toMutableList()
 			}
-			isTablet && !isLandscape -> {
+			isTabletPortrait && !isTabletLandscape -> {
 				tabletPortraitScales.toMutableList()
 			}
 			else -> {
@@ -238,16 +221,16 @@ class ImageUtils(context: Context, private val game: Game) {
 			customScale != 1.0 -> {
 				mutableListOf(customScale - 0.02, customScale - 0.01, customScale, customScale + 0.01, customScale + 0.02, customScale + 0.03, customScale + 0.04)
 			}
-			isLowerEnd -> {
+			is720p -> {
 				lowerEndScales.toMutableList()
 			}
-			!isLowerEnd && !isDefault && !isTablet -> {
+			!is720p && !is1080p && !isTabletPortrait -> {
 				middleEndScales.toMutableList()
 			}
-			isTablet && isLandscape -> {
+			isTabletPortrait && isTabletLandscape -> {
 				tabletLandscapeScales.toMutableList()
 			}
-			isTablet && !isLandscape -> {
+			isTabletPortrait && !isTabletLandscape -> {
 				tabletPortraitScales.toMutableList()
 			}
 			else -> {
@@ -457,72 +440,6 @@ class ImageUtils(context: Context, private val game: Game) {
 	}
 
 	/**
-	 * Acquire a Bitmap from the URL's image file.
-	 *
-	 * @return A new Bitmap.
-	 */
-	fun getBitmapFromURL(url: URL): Bitmap {
-		if (debugMode) {
-			game.printToLog("\n[DEBUG] Starting process to create a Bitmap from the image url: $url", tag = tag)
-		}
-
-		// Open up a HTTP connection to the URL.
-		val connection: HttpURLConnection = url.openConnection() as HttpURLConnection
-		connection.doInput = true
-		connection.connect()
-
-		// Download the image from the URL.
-		val input: InputStream = connection.inputStream
-		connection.disconnect()
-
-		return BitmapFactory.decodeStream(input)
-	}
-
-	/**
-	 * Pixel search by its RGB value.
-	 *
-	 * @param bitmap Bitmap of the image to search for the specific pixel.
-	 * @param red The pixel's Red value.
-	 * @param blue The pixel's Blue value.
-	 * @param green The pixel's Green value.
-	 * @return A Pair object of the (x,y) coordinates on the Bitmap for the matched pixel.
-	 */
-	fun pixelSearch(bitmap: Bitmap, red: Int, blue: Int, green: Int, suppressError: Boolean = false): Pair<Int, Int> {
-		if (debugMode) {
-			game.printToLog("\n[DEBUG] Starting process to find the specified pixel ($red, $blue, $green)...", tag = tag)
-		}
-
-		var x = 0
-		var y = 0
-
-		// Iterate through each pixel in the Bitmap and compare RGB values.
-		while (x < bitmap.width) {
-			while (y < bitmap.height) {
-				val pixel = bitmap.getPixel(x, y)
-
-				if (Color.red(pixel) == red && Color.blue(pixel) == blue && Color.green(pixel) == green) {
-					if (debugMode) {
-						game.printToLog("[DEBUG] Found matching pixel at ($x, $y).", tag = tag)
-					}
-
-					return Pair(x, y)
-				}
-
-				y++
-			}
-
-			x++
-			y = 0
-		}
-
-		if (!suppressError) {
-			game.printToLog("[WARNING] Failed to find the specified pixel ($red, $blue, $green).", tag = tag)
-		}
-
-		return Pair(-1, -1)
-	}
-
-	/**
 	 * Finds the location of the specified image from the /images/ folder inside assets.
 	 *
 	 * @param templateName File name of the template image.
@@ -533,9 +450,6 @@ class ImageUtils(context: Context, private val game: Game) {
 	 * @return Point object containing the location of the match or null if not found.
 	 */
 	fun findImage(templateName: String, tries: Int = 5, region: IntArray = intArrayOf(0, 0, 0, 0), suppressError: Boolean = false, testMode: Boolean = false): Point? {
-		Log.d(tag, "Custom Scale: $customScale")
-
-
 		val folderName = "images"
 		var numberOfTries = tries
 
@@ -704,140 +618,5 @@ class ImageUtils(context: Context, private val game: Game) {
 
 			return true
 		}
-	}
-
-	/**
-	 * Initialize Tesseract for future OCR operations. Make sure to put your .traineddata inside the root of the /assets/ folder.
-	 *
-	 * @param traineddataFileName The file name including its extension for the .traineddata of Tesseract.
-	 */
-	private fun initTesseract(traineddataFileName: String) {
-		val externalFilesDir: File? = myContext.getExternalFilesDir(null)
-		val tempDirectory: String = externalFilesDir?.absolutePath + "/tesseract/tessdata/"
-		val newTempDirectory = File(tempDirectory)
-
-		// If the /files/temp/ folder does not exist, create it.
-		if (!newTempDirectory.exists()) {
-			val successfullyCreated: Boolean = newTempDirectory.mkdirs()
-
-			// If the folder was not able to be created for some reason, log the error and stop the MediaProjection Service.
-			if (!successfullyCreated) {
-				game.printToLog("[ERROR] Failed to create the /files/tesseract/tessdata/ folder.", tag = tag, isError = true)
-			} else {
-				game.printToLog("[INFO] Successfully created /files/tesseract/tessdata/ folder.", tag = tag)
-			}
-		} else {
-			game.printToLog("[INFO] /files/tesseract/tessdata/ folder already exists.", tag = tag)
-		}
-
-		// If the .traineddata is not in the application folder, copy it there from assets.
-		val trainedDataPath = File(tempDirectory, traineddataFileName)
-		if (!trainedDataPath.exists()) {
-			try {
-				game.printToLog("[INFO] Starting Tesseract initialization.", tag = tag)
-				val input = myContext.assets.open(traineddataFileName)
-
-				val output = FileOutputStream("$tempDirectory/$traineddataFileName")
-
-				val buffer = ByteArray(1024)
-				var read: Int
-				while (input.read(buffer).also { read = it } != -1) {
-					output.write(buffer, 0, read)
-				}
-
-				input.close()
-				output.flush()
-				output.close()
-				game.printToLog("[INFO] Finished Tesseract initialization.", tag = tag)
-			} catch (e: IOException) {
-				game.printToLog("[ERROR] IO EXCEPTION: ${e.stackTraceToString()}", tag = tag, isError = true)
-			}
-		}
-	}
-
-	/**
-	 * Perform OCR text detection using Tesseract along with some image manipulation via thresholding to make the cropped screenshot black and white using OpenCV.
-	 *
-	 * @return The detected String in the cropped region.
-	 */
-	fun findTextTesseract(): String {
-		val (_, _) = getBitmaps("", "")
-
-		tessBaseAPI.init(myContext.getExternalFilesDir(null)?.absolutePath + "/tesseract/", "jpn")
-		game.printToLog("[INFO] Training file loaded.\n", tag = tag)
-
-		// Read in the new screenshot and crop it.
-		var cvImage = Imgcodecs.imread("$matchFilePath/source.png", Imgcodecs.IMREAD_GRAYSCALE)
-		cvImage = cvImage.submat(0, 500, 0, 500)
-
-		// Save the cropped image before converting it to black and white in order to troubleshoot issues related to differing device sizes and cropping.
-		Imgcodecs.imwrite("$matchFilePath/pre_tesseract_result.png", cvImage)
-
-		// Thresh the grayscale cropped image to make black and white.
-		val bwImage = Mat()
-		Imgproc.threshold(cvImage, bwImage, 200.0, 255.0, Imgproc.THRESH_BINARY)
-		Imgcodecs.imwrite("$matchFilePath/tesseract_result.png", bwImage)
-
-		val resultBitmap = BitmapFactory.decodeFile("$matchFilePath/tesseract_result.png")
-		tessBaseAPI.setImage(resultBitmap)
-
-		// Set the Page Segmentation Mode to '--psm 7' or "Treat the image as a single text line" according to https://tesseract-ocr.github.io/tessdoc/ImproveQuality.html#page-segmentation-method
-		tessBaseAPI.pageSegMode = TessBaseAPI.PageSegMode.PSM_SINGLE_LINE
-
-		var result = "empty!"
-		try {
-			// Finally, detect text on the cropped region.
-			result = tessBaseAPI.utF8Text
-		} catch (e: Exception) {
-			game.printToLog("[ERROR] Cannot perform OCR: ${e.stackTraceToString()}", tag = tag, isError = true)
-		}
-
-		tessBaseAPI.end()
-
-		return result
-	}
-
-	/**
-	 * Perform OCR text detection.
-	 *
-	 * @param templateName File name of the template image.
-	 * @param folderName Name of the folder that the template image is in.
-	 * @return ArrayList of detected text.
-	 */
-	fun findTextGoogleMLKit(templateName: String, folderName: String): ArrayList<String> {
-		// Read up on Google's ML Kit at https://developers.google.com/ml-kit/vision/text-recognition/android and my usage of it at
-		// https://github.com/steve1316/granblue-automation-android/blob/08ea2236f5508df1204992cb58e865b5dfd4620e/app/src/main/java/com/steve1316/granblueautomation_android/utils/ImageUtils.kt#L668-L688
-		// for a better understanding of how to do OCR detection.
-
-		val result = arrayListOf<String>()
-		val (_, templateBitMap) = getBitmaps(templateName, folderName)
-
-		if (templateBitMap != null) {
-			// Create a InputImage object for Google's ML OCR.
-			val inputImage = InputImage.fromBitmap(templateBitMap, 0)
-
-			// Start the asynchronous operation of text detection.
-			textRecognizer.process(inputImage).addOnSuccessListener {
-				if (it.textBlocks.size != 0) {
-					for (block in it.textBlocks) {
-						val message: String = block.text
-						result.add(message)
-
-						if (debugMode) {
-							game.printToLog("[DEBUG] Detected message: $message", tag = tag)
-						}
-
-						Log.d(tag, "Detected message: $message")
-					}
-				}
-			}.addOnFailureListener {
-				game.printToLog("[ERROR] Failed to do text detection on bitmap.", tag = tag, isError = true)
-			}
-		}
-
-		// Wait a few seconds for the asynchronous operations of Google's OCR to finish.
-		game.wait(3.0)
-
-		return result
 	}
 }

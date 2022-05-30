@@ -11,12 +11,12 @@ import java.io.File
 
 class JSONParser {
 	/**
-	 * Initialize settings into SharedPreferences from the JSON file.
+	 * Initialize settings from the JSON file.
 	 *
 	 * @param myContext The application context.
 	 */
 	fun initializeSettings(myContext: Context) {
-		Log.d(loggerTag, "Loading settings from JSON file to SharedPreferences...")
+		Log.d(loggerTag, "Loading settings from JSON file...")
 
 		// Grab the JSON object from the file.
 		val jString = File(myContext.getExternalFilesDir(null), "settings.json").bufferedReader().use { it.readText() }
@@ -24,9 +24,6 @@ class JSONParser {
 
 		//////////////////////////////////////////////////////////////////////////
 		//////////////////////////////////////////////////////////////////////////
-		// Manually save all key-value pairs from JSON object to SharedPreferences.
-		//
-		// Add more try-catch blocks to cover each JSONArray object as you need.
 
 		try {
 			val deckObj = jObj.getJSONObject("deck")
