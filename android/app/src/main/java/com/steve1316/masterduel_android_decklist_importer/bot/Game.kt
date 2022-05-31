@@ -121,8 +121,10 @@ class Game(private val myContext: Context) {
 		// Grab the card's name.
 		if (isMainDeck) {
 			CardNameData.name = Deck.main[index].name
+			printToLog("\n[INFO] Searching ${CardNameData.name} from the main deck.")
 		} else {
 			CardNameData.name = Deck.extra[index].name
+			printToLog("\n[INFO] Searching ${CardNameData.name} from the extra deck.")
 		}
 
 		// Activate the keyboard for the search bar.
@@ -136,6 +138,8 @@ class Game(private val myContext: Context) {
 			// Submit the search query by tapping the same location again to close the keyboard. This is the same as pressing ENTER.
 			gestureUtils.tap(location.x, location.y, "text_search")
 			wait(2.0)
+
+			printToLog("[INFO] Successfully submitted search query.")
 
 			true
 		} else {
@@ -164,8 +168,6 @@ class Game(private val myContext: Context) {
 			CardList.cardList[cardName]!!.rarity
 		}
 
-		Log.d(tag, "Rarity of $cardName is $rarity")
-
 		val rarityImageFileName = when (rarity) {
 			"N" -> {
 				"normal"
@@ -183,6 +185,8 @@ class Game(private val myContext: Context) {
 				throw Exception("Invalid rarity name of $rarity.")
 			}
 		}
+
+		printToLog("[INFO] Detected rarity of $cardName is $rarity.")
 
 		val rarityLocations = imageUtils.findAll(
 			"rarity_$rarityImageFileName", "images", region = intArrayOf(
@@ -237,6 +241,8 @@ class Game(private val myContext: Context) {
 		val trashLocation = imageUtils.findImage("trash", tries = 30)!!
 		gestureUtils.tap(trashLocation.x, trashLocation.y, "trash")
 		wait(0.25)
+
+		printToLog("[INFO] Exited the card description screen.")
 	}
 
 	/**
@@ -255,6 +261,9 @@ class Game(private val myContext: Context) {
 			gestureUtils.tap(clearLocation.x, clearLocation.y, "trash")
 			wait(1.0)
 
+			// Process the main deck.
+			printToLog("\n==============================================")
+			printToLog("[INFO] Starting processing of the Main deck...")
 			var i = 0
 			while (i < Deck.main.size) {
 				// Submit the search query first.
@@ -265,6 +274,7 @@ class Game(private val myContext: Context) {
 
 				i++
 			}
+			printToLog("\n[SUCCESS] Finished added the decklist.")
 		} else {
 			throw Exception("Unable to detect if the bot is at the Create a Deck screen.")
 		}
