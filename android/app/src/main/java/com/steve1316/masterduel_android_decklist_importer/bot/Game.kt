@@ -107,6 +107,14 @@ class Game(private val myContext: Context) {
 	 */
 	private fun initializationCheck(): Boolean {
 		printToLog("[INIT] Performing an initialization check...")
+
+		val ownedCardsLocation = imageUtils.findImage("owned_cards", tries = 2)
+		if (ownedCardsLocation != null) {
+			printToLog("[INIT] Detected the card list is set to owned cards only. Switching to comprehensive card list...")
+			gestureUtils.tap(ownedCardsLocation.x, ownedCardsLocation.y, "owned_cards")
+			wait(0.1)
+		}
+
 		return (imageUtils.findImage("trash") != null)
 	}
 
