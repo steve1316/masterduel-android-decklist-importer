@@ -282,6 +282,21 @@ class Game(private val myContext: Context) {
 
 				i++
 			}
+
+			// Process the extra deck.
+			printToLog("\n==============================================")
+			printToLog("[INFO] Starting processing of the Extra deck...")
+			i = 0
+			while (i < Deck.extra.size) {
+				// Submit the search query first.
+				searchCard(i, isMainDeck = false)
+
+				// Check the rarity of the card and compare to the rarities of the cards returned from the search query.
+				processSearchResults(i, isMainDeck = false)
+
+				i++
+			}
+
 			printToLog("\n[SUCCESS] Finished added the decklist.")
 		} else {
 			throw Exception("Unable to detect if the bot is at the Create a Deck screen.")
