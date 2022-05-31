@@ -206,7 +206,7 @@ class Game(private val myContext: Context) {
 		Log.d(tag, "Rarity locations found: $rarityLocations")
 
 		return if (rarityLocations.size > 3) {
-			printToLog("Skipped $cardName as there were too many matches.")
+			printToLog("[WARN] Skipped $cardName as there were too many matches.", isWarning = true)
 			val trashLocation = imageUtils.findImage("trash", tries = 30)!!
 			gestureUtils.tap(trashLocation.x, trashLocation.y, "trash")
 			wait(0.10)
@@ -242,6 +242,7 @@ class Game(private val myContext: Context) {
 				gestureUtils.tap(rarityLocations[rarityLocations.size - 1].x, rarityLocations[rarityLocations.size - 1].y, "rarity_$rarityImageFileName")
 				wait(0.10)
 			} else if (rarityLocations.size == 0) {
+				printToLog("[WARN] Skipped $cardName as there were no matches from the search query.", isWarning = true)
 				exitCardDescriptionScreen()
 				return false
 			} else {
@@ -249,7 +250,7 @@ class Game(private val myContext: Context) {
 				wait(0.10)
 			}
 
-			Log.d(tag, "Adding card $amount times.")
+			printToLog("[INFO] Selected the card and brought up its description screen.")
 
 			// Now that the description of the card is on the screen, add however many is required to the decklist.
 			val addCardLocation = imageUtils.findImage("add_card", tries = 30)!!
@@ -259,6 +260,8 @@ class Game(private val myContext: Context) {
 				wait(0.10)
 				i++
 			}
+
+			printToLog("[INFO] Added x$amount $cardName.")
 
 			exitCardDescriptionScreen()
 
