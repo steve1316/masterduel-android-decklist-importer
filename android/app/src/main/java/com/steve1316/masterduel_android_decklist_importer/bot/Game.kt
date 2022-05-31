@@ -240,13 +240,13 @@ class Game(private val myContext: Context) {
 
 				// Press on the last location as that is most likely the highest finish of that card to open up their description screen.
 				gestureUtils.tap(rarityLocations[rarityLocations.size - 1].x, rarityLocations[rarityLocations.size - 1].y, "rarity_$rarityImageFileName")
-				wait(0.25)
+				wait(0.10)
 			} else if (rarityLocations.size == 0) {
 				exitCardDescriptionScreen()
 				return false
 			} else {
 				gestureUtils.tap(rarityLocations[0].x, rarityLocations[0].y, "rarity_$rarityImageFileName")
-				wait(0.25)
+				wait(0.10)
 			}
 
 			Log.d(tag, "Adding card $amount times.")
@@ -256,7 +256,7 @@ class Game(private val myContext: Context) {
 			var i = 0
 			while (i < amount) {
 				gestureUtils.tap(addCardLocation.x, addCardLocation.y, "add_card")
-				wait(0.25)
+				wait(0.10)
 				i++
 			}
 
@@ -270,12 +270,12 @@ class Game(private val myContext: Context) {
 		// Close the card description screen.
 		val exitCardLocation = imageUtils.findImage("exit_card", tries = 30)!!
 		gestureUtils.tap(exitCardLocation.x, exitCardLocation.y, "exit_card")
-		wait(0.25)
+		wait(0.10)
 
 		// Finally, clear the search bar.
 		val trashLocation = imageUtils.findImage("trash", tries = 30)!!
 		gestureUtils.tap(trashLocation.x, trashLocation.y, "trash")
-		wait(0.25)
+		wait(0.10)
 
 		printToLog("[INFO] Exited the card description screen.")
 	}
