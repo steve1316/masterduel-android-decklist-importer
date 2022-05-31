@@ -293,7 +293,6 @@ class MediaProjectionService : Service() {
 		override fun onOrientationChanged(orientation: Int) {
 			val newRotation: Int = (getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay.rotation
 			if (newRotation != oldRotation) {
-				Log.d(tag, "I ROTATED!!!!")
 				oldRotation = newRotation
 				try {
 					// Perform cleanup.
