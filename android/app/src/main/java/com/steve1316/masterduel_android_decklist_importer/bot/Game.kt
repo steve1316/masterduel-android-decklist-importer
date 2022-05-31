@@ -207,11 +207,38 @@ class Game(private val myContext: Context) {
 
 		return if (rarityLocations.size > 3) {
 			printToLog("Skipped $cardName as there were too many matches.")
+			val trashLocation = imageUtils.findImage("trash", tries = 30)!!
+			gestureUtils.tap(trashLocation.x, trashLocation.y, "trash")
+			wait(0.10)
 			false
 		} else {
 			// Now add the card to the decklist.
-			// First press on the last location as that is most likely the highest finish of that card to open up their description screen.
 			if (rarityLocations.size > 1) {
+				// If the locations are more than 500px apart from each other or that the locations differ in y-coordinate, skip this card.
+				var i = 1
+				var lastRarityX = rarityLocations[0].x
+				var lastRarityY = rarityLocations[0].y
+				while (i < rarityLocations.size) {
+					if ((rarityLocations[i].x - lastRarityX) > 500.0) {
+						printToLog("[WARN] Skipped $cardName as the matches are likely a false positive via the x-coordinate.", isWarning = true)
+						val trashLocation = imageUtils.findImage("trash", tries = 30)!!
+						gestureUtils.tap(trashLocation.x, trashLocation.y, "trash")
+						wait(0.10)
+						return false
+					} else if (rarityLocations[i].y != lastRarityY) {
+						printToLog("[WARN] Skipped $cardName as the matches are likely a false positive via the y-coordinate.", isWarning = true)
+						val trashLocation = imageUtils.findImage("trash", tries = 30)!!
+						gestureUtils.tap(trashLocation.x, trashLocation.y, "trash")
+						wait(0.10)
+						return false
+					} else {
+						lastRarityX = rarityLocations[i].x
+						lastRarityY = rarityLocations[i].y
+						i++
+					}
+				}
+
+				// Press on the last location as that is most likely the highest finish of that card to open up their description screen.
 				gestureUtils.tap(rarityLocations[rarityLocations.size - 1].x, rarityLocations[rarityLocations.size - 1].y, "rarity_$rarityImageFileName")
 				wait(0.25)
 			} else if (rarityLocations.size == 0) {
