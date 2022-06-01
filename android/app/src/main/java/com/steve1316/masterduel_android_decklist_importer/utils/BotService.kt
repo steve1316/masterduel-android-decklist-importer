@@ -36,6 +36,8 @@ class BotService : Service() {
 	private lateinit var overlayView: View
 	private lateinit var overlayButton: ImageButton
 
+	private var numberOfFailedCards: Int = 0
+
 	companion object {
 		private lateinit var thread: Thread
 		private lateinit var windowManager: WindowManager
@@ -116,7 +118,7 @@ class BotService : Service() {
 									StartModule.sendEvent("BotService", "Running")
 
 									// Start with the provided settings from SharedPreferences.
-									game.start()
+									numberOfFailedCards = game.start()
 
 									performCleanUp()
 								} catch (e: Exception) {
@@ -191,7 +193,11 @@ class BotService : Service() {
 
 		// Update the app's notification with the status.
 		if (!isException) {
-			NotificationUtils.updateNotification(myContext, "Bot has completed successfully with no errors.")
+			if (numberOfFailedCards > 0) {
+				NotificationUtils.updateNotification(myContext, "All cards added but $numberOfFailedCards failed. Tap me to see more.")
+			} else {
+				NotificationUtils.updateNotification(myContext, "All cards added successfully.")
+			}
 		}
 
 		// Reset the overlay button's image on a separate UI thread.

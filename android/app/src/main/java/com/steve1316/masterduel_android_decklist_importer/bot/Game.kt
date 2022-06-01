@@ -28,6 +28,8 @@ class Game(private val myContext: Context) {
 	val imageUtils: ImageUtils = ImageUtils(myContext, this)
 	val gestureUtils: MyAccessibilityService = MyAccessibilityService.getInstance()
 
+	private val failedCards: MutableMap<String, String> = mutableMapOf()
+
 	/**
 	 * Returns a formatted string of the elapsed time since the bot started as HH:MM:SS format.
 	 *
@@ -206,6 +208,9 @@ class Game(private val myContext: Context) {
 		Log.d(tag, "Rarity locations found: $rarityLocations")
 
 		return if (rarityLocations.size > 3) {
+			// Add the card to the failed list along with the reason of failure.
+			failedCards[cardName] = "Too many matches"
+
 			printToLog("[WARN] Skipped $cardName as there were too many matches.", isWarning = true)
 			val trashLocation = imageUtils.findImage("trash", tries = 30)!!
 			gestureUtils.tap(trashLocation.x, trashLocation.y, "trash")
@@ -220,12 +225,18 @@ class Game(private val myContext: Context) {
 				var lastRarityY = rarityLocations[0].y
 				while (i < rarityLocations.size) {
 					if ((rarityLocations[i].x - lastRarityX) > 500.0) {
+						// Add the card to the failed list along with the reason of failure.
+						failedCards[cardName] = "Matches are likely a false positive via the x-coordinate."
+
 						printToLog("[WARN] Skipped $cardName as the matches are likely a false positive via the x-coordinate.", isWarning = true)
 						val trashLocation = imageUtils.findImage("trash", tries = 30)!!
 						gestureUtils.tap(trashLocation.x, trashLocation.y, "trash")
 						wait(0.10)
 						return false
 					} else if (rarityLocations[i].y != lastRarityY) {
+						// Add the card to the failed list along with the reason of failure.
+						failedCards[cardName] = "Matches are likely a false positive via the y-coordinate."
+
 						printToLog("[WARN] Skipped $cardName as the matches are likely a false positive via the y-coordinate.", isWarning = true)
 						val trashLocation = imageUtils.findImage("trash", tries = 30)!!
 						gestureUtils.tap(trashLocation.x, trashLocation.y, "trash")
@@ -242,6 +253,9 @@ class Game(private val myContext: Context) {
 				gestureUtils.tap(rarityLocations[rarityLocations.size - 1].x, rarityLocations[rarityLocations.size - 1].y, "rarity_$rarityImageFileName")
 				wait(0.10)
 			} else if (rarityLocations.size == 0) {
+				// Add the card to the failed list along with the reason of failure.
+				failedCards[cardName] = "No matches from the search query."
+
 				printToLog("[WARN] Skipped $cardName as there were no matches from the search query.", isWarning = true)
 				exitCardDescriptionScreen()
 				return false
@@ -290,9 +304,9 @@ class Game(private val myContext: Context) {
 	/**
 	 * Bot will begin automation here.
 	 *
-	 * @return True if all automation goals have been met. False otherwise.
+	 * @return Number of cards that failed to update the notification with.
 	 */
-	fun start(): Boolean {
+	fun start(): Int {
 		val startTime: Long = System.currentTimeMillis()
 
 		landscapeCheck()
@@ -331,7 +345,17 @@ class Game(private val myContext: Context) {
 				i++
 			}
 
-			printToLog("\n[SUCCESS] Finished added the decklist.")
+			printToLog("\n==============================================")
+			printToLog("[SUCCESS] Finished added the decklist.")
+
+			// Print out any cards that failed.
+			if (failedCards.isNotEmpty()) {
+				printToLog("\n==============================================")
+				printToLog("${failedCards.size} card(s) failed:\n")
+				failedCards.keys.forEach { cardName ->
+					printToLog("$cardName - ${failedCards[cardName]}")
+				}
+			}
 		} else {
 			throw Exception("Unable to detect if the bot is at the Create a Deck screen.")
 		}
@@ -340,6 +364,6 @@ class Game(private val myContext: Context) {
 		val runTime: Long = endTime - startTime
 		Log.d(tag, "Total Runtime: ${runTime}ms")
 
-		return true
+		return failedCards.size
 	}
 }
