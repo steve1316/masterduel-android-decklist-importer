@@ -269,6 +269,10 @@ class Game(private val myContext: Context) {
 		}
 	}
 
+	/**
+	 * Exits the card description screen.
+	 *
+	 */
 	private fun exitCardDescriptionScreen() {
 		// Close the card description screen.
 		val exitCardLocation = imageUtils.findImage("exit_card", tries = 30)!!
