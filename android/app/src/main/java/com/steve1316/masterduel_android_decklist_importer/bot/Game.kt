@@ -344,7 +344,7 @@ class Game(private val myContext: Context) {
 			wait(1.0)
 
 			// Process the main deck.
-			printToLog("\n==============================================")
+			printToLog("\n====================")
 			printToLog("[INFO] Starting processing of the Main deck...")
 			var i = 0
 			while (i < Deck.main.size) {
@@ -358,7 +358,7 @@ class Game(private val myContext: Context) {
 			}
 
 			// Process the extra deck.
-			printToLog("\n==============================================")
+			printToLog("\n====================")
 			printToLog("[INFO] Starting processing of the Extra deck...")
 			i = 0
 			while (i < Deck.extra.size) {
@@ -371,12 +371,12 @@ class Game(private val myContext: Context) {
 				i++
 			}
 
-			printToLog("\n==============================================")
+			printToLog("\n====================")
 			printToLog("[SUCCESS] Finished added the decklist.")
 
 			// Print out any cards that failed.
 			if (failedCards.isNotEmpty()) {
-				printToLog("\n==============================================")
+				printToLog("\n\n====================")
 				printToLog("${failedCards.size} card(s) failed:\n")
 				failedCards.keys.forEach { cardName ->
 					printToLog("$cardName - ${failedCards[cardName]}")
