@@ -4,13 +4,24 @@
 
 This application serves to provide an easy way to import a decklist from masterduelmeta by utilizing the Accessibility Service on Android to perform the required automation necessary to do the importing.
 
+It will first fetch the text version of the decklist from the URL that you provided. Then when the tool starts, it will go through each card and attempt to search them. Finally, it will add the highest finish that you have for that card.
+
+Any failures (like no search results) will be noted at the very end in the message log and will provide the reason as to why they failed.
+
+It should be noted that this is not a "smart" tool. It is dumb so if the query of `Metalfoes Fusion` returns 1 SR card as the first result which is `Fullmetalfoes Alkahest` and the actual `Metalfoes Fusion` is 5 cards to the right of it, it will mark it as a failure and move on to the next card. It relies on the assumption that the correct card and its finishes are one after the other. This may lead to the situation where you only have one finish of the correct card but there is 2 cards right after it with the same rarity. Because they are right after the first one which you only have the one finish of, the bot will erroneously select what it thinks is the highest finish, which will be the 3rd card that is not what it searched for.
+
+Note: Cards like `One for One`, `Metalfoes Fusion`, etc. that have multiple different search results tied to them because their names are shared amongst other cards will be marked as failures. The bot will not handle them so you will need to add them manually afterwards.
+
 # Provided Features
+
+-   Parse a text version of the decklist from the provided masterduelmeta URL.
+-   Adds each card to the ingame deck automatically.
+-   Message log that details what happened.
 
 # Requirements
 
 1. [Android Device or Emulator (Nougat 7.0+)](https://developer.android.com/about/versions)
-    1. (Experimental) Tablets supported with minimum 1600 pixel width like the Galaxy Tab S7. If oriented portrait, browsers like Chrome needs to have Desktop Mode turned off and situated on the left half of the tablet. If landscape, browsers like Chrome needs to have Desktop Mode turned on and situated on the left half of the tablet.
-    2. Tested emulator was Bluestacks 5 with the following settings:
+    1. Tested emulator was Bluestacks 5 with the following settings:
         - P64 (Beta)
         - 1080x1920 (Portrait Mode as emulators do not have a way to tell the bot that it rotated.)
         - 240 DPI
