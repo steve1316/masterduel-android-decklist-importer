@@ -14,6 +14,7 @@ import com.steve1316.masterduel_android_decklist_importer.utils.MessageLog
 import com.steve1316.masterduel_android_decklist_importer.utils.MyAccessibilityService
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
+import org.opencv.core.Point
 import java.util.concurrent.TimeUnit
 
 /**
@@ -219,21 +220,22 @@ class Game(private val myContext: Context) {
 		} else {
 			// Now add the card to the decklist.
 			if (rarityLocations.size > 1) {
-				// If the locations are more than 500px apart from each other or that the locations differ in y-coordinate, skip this card.
+				// Check the validity of the search results by their x-coordinate.
+				if (!checkSearchValidity(rarityLocations)) {
+					// Add the card to the failed list along with the reason of failure.
+					failedCards[cardName] = "Matches are likely a false positive via the x-coordinate."
+
+					printToLog("[WARN] Skipped $cardName as the matches are likely a false positive via the x-coordinate.", isWarning = true)
+					val trashLocation = imageUtils.findImage("trash", tries = 30)!!
+					gestureUtils.tap(trashLocation.x, trashLocation.y, "trash")
+					return false
+				}
+
+				// Check the validity of the search results by their y-coordinate.
 				var i = 1
-				var lastRarityX = rarityLocations[0].x
 				var lastRarityY = rarityLocations[0].y
 				while (i < rarityLocations.size) {
-					if ((rarityLocations[i].x - lastRarityX) > 500.0) {
-						// Add the card to the failed list along with the reason of failure.
-						failedCards[cardName] = "Matches are likely a false positive via the x-coordinate."
-
-						printToLog("[WARN] Skipped $cardName as the matches are likely a false positive via the x-coordinate.", isWarning = true)
-						val trashLocation = imageUtils.findImage("trash", tries = 30)!!
-						gestureUtils.tap(trashLocation.x, trashLocation.y, "trash")
-						wait(0.10)
-						return false
-					} else if (rarityLocations[i].y != lastRarityY) {
+					if (rarityLocations[i].y != lastRarityY) {
 						// Add the card to the failed list along with the reason of failure.
 						failedCards[cardName] = "Matches are likely a false positive via the y-coordinate."
 
@@ -243,7 +245,6 @@ class Game(private val myContext: Context) {
 						wait(0.10)
 						return false
 					} else {
-						lastRarityX = rarityLocations[i].x
 						lastRarityY = rarityLocations[i].y
 						i++
 					}
@@ -281,6 +282,31 @@ class Game(private val myContext: Context) {
 
 			true
 		}
+	}
+
+	/**
+	 * Check the search result validity in terms of their x-coordinate.
+	 *
+	 * @param rarityLocations Image locations to be compared.
+	 * @return True if they are all valid in terms of their x-coordinate.
+	 */
+	private fun checkSearchValidity(rarityLocations: ArrayList<Point>): Boolean {
+		var lastLocation = rarityLocations[0]
+		var difference = rarityLocations[1].x - rarityLocations[0].x
+		var i = 1
+		while (i < rarityLocations.size) {
+			val newDifference = rarityLocations[i].x - lastLocation.x
+			if (newDifference != difference) {
+				return false
+			}
+
+			lastLocation = rarityLocations[i]
+			difference = newDifference
+
+			i++
+		}
+
+		return true
 	}
 
 	/**
