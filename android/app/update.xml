@@ -5,7 +5,10 @@
     <releaseNotes>
 v1.0.0 - Changelog
 
-
+- This is the v1.0.0 release.
+- This app can parse a text version of a decklist from a provided masterduelmeta url.
+- It can then import the text decklist into a ingame decklist in Master Duel.
+- More information and known limitations are outlined in the README.
     </releaseNotes>
   </update>
 </AppUpdater>
