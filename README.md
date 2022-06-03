@@ -14,9 +14,9 @@ Note: Cards like `One for One`, `Metalfoes Fusion`, etc. that have multiple diff
 
 # Provided Features
 
--   Parse a text version of the decklist from the provided masterduelmeta URL.
--   Adds each card to the ingame deck automatically.
--   Message log that details what happened.
+-   Parses a text version of the decklist from the provided masterduelmeta URL.
+-   Automatically searches and adds each card from the text decklist into the ingame decklist.
+-   Provides a message log showcasing what happened with each card with a summary at the very end if any cards failed to be added.
 
 # Requirements
 
@@ -28,6 +28,12 @@ Note: Cards like `One for One`, `Metalfoes Fusion`, etc. that have multiple diff
         - 4+ GB of Memory
 
 # Instructions
+
+1. Download the latest .apk from the Releases section on the right side of this page right under the About section and then install the application.
+2. Head to the Settings page in the app to paste in the url from masterduelmeta and press the button to fetch the text form of your chosen decklist. You can double check the message log right underneath it to see the text form of the decklist.
+3. Now you can head back to the Home page in the app and press the Start button to begin giving the necessary permissions required for the app to run. After that is done, pressing Start again will display a floating overlay button.
+4. Go into Master Duel and go to create a deck, preferably empty and brand new. Move the overlay button somewhere out of the way and then press it to start the decklist importing process.
+5. When it finishes, a notification will trigger with a message on either success or how many cards failed to be added. You can head on over to the Home page of the app and look at the message log to see what happened.
 
 # Technologies used
 
