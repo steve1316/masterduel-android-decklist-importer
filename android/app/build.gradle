@@ -177,7 +177,7 @@ android {
             variant.outputs.all { output ->
                 def versionName = defaultConfig.versionName
                 def architecture = output.filters[0].identifier
-                outputFileName = "v${versionName}-CVBotTemplate-${architecture}.apk"
+                outputFileName = "v${versionName}-MDAndroidDecklistImporter-${architecture}.apk"
             }
         }
     }
