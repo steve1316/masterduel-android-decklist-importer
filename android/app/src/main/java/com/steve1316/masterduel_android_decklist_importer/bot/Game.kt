@@ -376,10 +376,10 @@ class Game(private val myContext: Context) {
 
 			// Print out any cards that failed.
 			if (failedCards.isNotEmpty()) {
-				printToLog("\n\n====================")
+				printToLog("\n====================")
 				printToLog("${failedCards.size} card(s) failed:\n")
 				failedCards.keys.forEach { cardName ->
-					printToLog("$cardName - ${failedCards[cardName]}")
+					printToLog("$cardName - ${failedCards[cardName]}\n")
 				}
 			}
 		} else {
@@ -388,7 +388,7 @@ class Game(private val myContext: Context) {
 
 		val endTime: Long = System.currentTimeMillis()
 		val runTime: Long = endTime - startTime
-		Log.d(tag, "Total Runtime: ${runTime}ms")
+		printToLog("Total Runtime: ${runTime}ms")
 
 		return failedCards.size
 	}
