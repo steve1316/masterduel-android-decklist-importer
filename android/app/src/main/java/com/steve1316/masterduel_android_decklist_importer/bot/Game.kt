@@ -146,8 +146,8 @@ class Game(private val myContext: Context) {
 			gestureUtils.tap(location.x, location.y, "text_search")
 			wait(1.0)
 
-			// Submit the search query by tapping the same location again to close the keyboard. This is the same as pressing ENTER.
-			gestureUtils.tap(location.x, location.y, "text_search")
+			// Submit the search query by tapping elsewhere on the screen to close the keyboard. This is the same as pressing ENTER.
+			gestureUtils.tap(MediaProjectionService.displayWidth / 2.0, 100.0, "text_search")
 			wait(2.0)
 
 			printToLog("[INFO] Successfully submitted search query.")
