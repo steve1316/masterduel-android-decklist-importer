@@ -15,7 +15,7 @@ import org.opencv.android.OpenCVLoader;
 import java.util.Locale;
 
 public class MainActivity extends ReactActivity {
-    public static final String loggerTag = "[TAG]";
+    public static final String loggerTag = "[MDADI]";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
