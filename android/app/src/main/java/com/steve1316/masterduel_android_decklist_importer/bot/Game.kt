@@ -132,6 +132,18 @@ class Game(private val myContext: Context) {
 		// Grab the card's name.
 		if (isMainDeck) {
 			CardNameData.name = Deck.main[index].name
+
+			// Check to see if the card exists in the JSON file.
+			var cardName = ""
+			try {
+				cardName = Deck.main[index].name
+				CardList.cardList[cardName]!!.rarity
+			} catch (e: Exception) {
+				printToLog("[WARN] Skipped $cardName as it does not exist in the JSON file yet.", isWarning = true)
+				failedCards[cardName] = "Does not exist in the JSON file yet"
+				return false
+			}
+
 			printToLog("\n[INFO] Searching ${CardNameData.name} from the main deck.")
 		} else {
 			CardNameData.name = Deck.extra[index].name
@@ -349,10 +361,10 @@ class Game(private val myContext: Context) {
 			var i = 0
 			while (i < Deck.main.size) {
 				// Submit the search query first.
-				searchCard(i)
-
-				// Check the rarity of the card and compare to the rarities of the cards returned from the search query.
-				processSearchResults(i)
+				if(searchCard(i)) {
+					// Check the rarity of the card and compare to the rarities of the cards returned from the search query.
+					processSearchResults(i)
+				}
 
 				i++
 			}
@@ -363,10 +375,10 @@ class Game(private val myContext: Context) {
 			i = 0
 			while (i < Deck.extra.size) {
 				// Submit the search query first.
-				searchCard(i, isMainDeck = false)
-
-				// Check the rarity of the card and compare to the rarities of the cards returned from the search query.
-				processSearchResults(i, isMainDeck = false)
+				if (searchCard(i, isMainDeck = false)) {
+					// Check the rarity of the card and compare to the rarities of the cards returned from the search query.
+					processSearchResults(i, isMainDeck = false)
+				}
 
 				i++
 			}
