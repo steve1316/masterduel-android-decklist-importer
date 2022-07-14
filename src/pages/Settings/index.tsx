@@ -7,7 +7,8 @@ import TitleDivider from "../../components/TitleDivider"
 import CustomButton from "../../components/CustomButton"
 import DecklistMessageLog from "../../components/DecklistMessageLog"
 import { TextInput } from "react-native-paper"
-import RNFS from "react-native-fs"
+import { Divider, Text } from "react-native-elements"
+import cards from "../../data/cards.json"
 
 const styles = StyleSheet.create({
     root: {
@@ -20,6 +21,7 @@ const styles = StyleSheet.create({
 
 const Settings = () => {
     const [snackbarOpen, setSnackbarOpen] = useState<boolean>(false)
+    const [list, setList] = useState<string[]>([])
 
     const bsc = useContext(BotStateContext)
 
@@ -29,95 +31,160 @@ const Settings = () => {
         setTimeout(() => setSnackbarOpen(false), 1500)
     }, [bsc.readyStatus])
 
-    // Fetch the decklist from the provided url.
-    const fetchData = async () => {
-        const link = bsc.settings.url
-        const newLink = link.split(link.substring(0, link.indexOf("top-decks/")) + "top-decks/")[1]
-        const apiUrl = `https://www.masterduelmeta.com/api/v1/top-decks?url=/${newLink}/&amp;limit=1`
-
-        try {
-            // Get the JSON object from the API.
-            const response = await fetch(apiUrl)
-            const jsonString = await response.text()
-            const parsedObject = JSON.parse(jsonString)
-            const deck = parsedObject[0] as Deck
+    useEffect(() => {
+        if (list.length !== 0) {
+            interface Temp {
+                name: string
+            }
 
             const newDeck: Deck = {
                 main: [],
                 extra: [],
             }
 
-            // Now iterate through main and extra arrays to constuct the deck.
-            deck.main.forEach((data) => {
-                let newCard: Cards = {
-                    card: {
-                        name: data.card.name,
-                    },
-                    amount: data.amount,
+            let isMain = false
+            let isExtra = false
+
+            // Iterate through each card in the list from ygoprodeck and compare Konami IDs to determine the rest of the card's data.
+            list.forEach((cardID) => {
+                if (cardID !== "" && cardID !== "!side") {
+                    if (cardID === "#main") {
+                        isMain = true
+                        isExtra = false
+                    } else if (cardID === "#extra") {
+                        isMain = false
+                        isExtra = true
+                    } else {
+                        // Grab the rest of the card's data from the JSON file.
+                        const card = cards.find((ele) => ele.konamiID === cardID) as Temp
+
+                        // Determine if the card already exists in the temp list.
+                        var index = -1
+                        if (isMain) {
+                            index = newDeck.main.findIndex((element) => {
+                                return element.card.name === card.name
+                            })
+                        } else if (isExtra) {
+                            index = newDeck.extra.findIndex((element) => {
+                                return element.card.name === card.name
+                            })
+                        } else {
+                            console.warn("Invalid card element detected.")
+                        }
+
+                        if (index !== -1) {
+                            // If it already exists, then increment the amount.
+                            if (isMain) {
+                                newDeck.main[index].amount += 1
+                            } else if (isExtra) {
+                                newDeck.extra[index].amount += 1
+                            }
+                        } else {
+                            // If it does not exist, then push the new card to the temp list.
+                            let newCard: Cards = {
+                                card: {
+                                    name: card.name,
+                                },
+                                amount: 1,
+                            }
+
+                            if (isMain) {
+                                newDeck.main.push(newCard)
+                            } else if (isExtra) {
+                                newDeck.extra.push(newCard)
+                            }
+                        }
+                    }
                 }
-
-                newDeck.main.push(newCard)
-            })
-
-            deck.extra.forEach((data) => {
-                let newCard: Cards = {
-                    card: {
-                        name: data.card.name,
-                    },
-                    amount: data.amount,
-                }
-
-                newDeck.extra.push(newCard)
             })
 
             bsc.setSettings({ ...bsc.settings, deck: newDeck })
-        } catch {
-            console.warn("URL was not valid or API was changed.")
-            bsc.setSettings({
-                ...bsc.settings,
-                deck: {
+        }
+    }, [list])
+
+    // Fetch the decklist from the provided url.
+    const fetchData = async () => {
+        if (bsc.settings.url.includes("masterduelmeta")) {
+            // This is the workflow for the masterduelmeta website.
+            const link = bsc.settings.url
+            const newLink = link.split(link.substring(0, link.indexOf("top-decks/")) + "top-decks/")[1]
+            const apiUrl = `https://www.masterduelmeta.com/api/v1/top-decks?url=/${newLink}/&amp;limit=1`
+
+            try {
+                // Get the JSON object from the API.
+                const response = await fetch(apiUrl)
+                const jsonString = await response.text()
+                const parsedObject = JSON.parse(jsonString)
+                const deck = parsedObject[0] as Deck
+
+                const newDeck: Deck = {
                     main: [],
                     extra: [],
-                },
-            })
-        }
+                }
 
-        try {
-            const response = await fetch("https://www.masterduelmeta.com/api/v1/cards?limit")
-            const jsonString = await response.text()
-            const parsedObject = JSON.parse(jsonString)
+                // Now iterate through main and extra arrays to constuct the deck.
+                deck.main.forEach((data) => {
+                    let newCard: Cards = {
+                        card: {
+                            name: data.card.name,
+                        },
+                        amount: data.amount,
+                    }
 
-            interface CardList {
-                name: String
-                rarity: String
+                    newDeck.main.push(newCard)
+                })
+
+                deck.extra.forEach((data) => {
+                    let newCard: Cards = {
+                        card: {
+                            name: data.card.name,
+                        },
+                        amount: data.amount,
+                    }
+
+                    newDeck.extra.push(newCard)
+                })
+
+                bsc.setSettings({ ...bsc.settings, deck: newDeck })
+            } catch {
+                console.warn("URL was not valid or API was changed.")
+                bsc.setSettings({
+                    ...bsc.settings,
+                    deck: {
+                        main: [],
+                        extra: [],
+                    },
+                })
             }
+        } else if (bsc.settings.url.includes("ygoprodeck")) {
+            // This is the workflow for the ygoprodeck website.
+            try {
+                const link = bsc.settings.url
+                const res = await fetch(link)
 
-            const newCardList: CardList[] = []
-            const convertedObject = parsedObject as CardList[]
-            convertedObject.forEach((card) => {
-                newCardList.push({ name: card.name, rarity: card.rarity })
-            })
+                // Parse the link array from the headers.
+                const linkElement: string = res.headers["map"]["link"].split(",").slice(2, 3)[0]
 
-            // Now save the comprehensive card list as a JSON file in the same place as the settings.json file.
-            const path = RNFS.ExternalDirectoryPath + "/cards.json"
-            const toSave = JSON.stringify(newCardList, null, 4)
-            await RNFS.unlink(path)
-                .then(() => {
-                    console.log("cards.json file successfully deleted.")
-                })
-                .catch(() => {
-                    console.log("cards.json file does not exist so no need to delete it before saving current card list.")
-                })
+                // Now grab the Deck ID from the URL.
+                const idNumber: number = Number(linkElement.replace("<https://ygoprodeck.com/?p=", "").replace(">; rel=shortlink", "").trim())
 
-            await RNFS.writeFile(path, toSave)
-                .then(() => {
-                    console.log("Card list saved to ", path)
-                })
-                .catch((e) => {
-                    console.error(`Error writing settings to path ${path}: ${e}`)
-                })
-        } catch {
-            console.warn("Cards API failed to respond.")
+                // Construct the request object and fetch the list of Konami IDs from the .ydk file using the Deck ID.
+                const request = new XMLHttpRequest()
+                request.onload = (e) => {
+                    if (request.status === 200) {
+                        // Convert the string into an array of strings split up by the newlines.
+                        setList(request.responseText.split("\n"))
+                    } else {
+                        console.warn("error")
+                    }
+                }
+                request.open("GET", `https://ygoprodeck.com/YGOPRO_Decks/3/${idNumber}.ydk`)
+                request.send()
+            } catch (e) {
+                console.warn(e)
+            }
+        } else {
+            console.error("Invalid URL entered or website is unsupported.")
         }
     }
 
@@ -130,14 +197,18 @@ const Settings = () => {
             <View>
                 <TitleDivider
                     title="Enter the Decklist URL"
-                    subtitle="Enter the URL from masterduelmeta.com and then press the Analyze button to fetch the decklist in text form. If successful, this will enable the Start button on the Home page."
+                    subtitle="Enter the URL and then press the Analyze button to fetch the decklist in text form. If successful, this will enable the Start button on the Home page."
                     hasIcon={true}
                     iconName="bag-personal"
                     iconColor="#000"
                 />
 
+                <Divider style={{ marginBottom: 10 }} />
+                <Text style={{ marginBottom: 10, color: "black" }}>{`Supported websites are:\n\n• masterduelmeta.com\n• ygoprodeck.com`}</Text>
+                <Divider style={{ marginBottom: 10 }} />
+
                 <TextInput
-                    label="Master Duel Meta Decklist URL"
+                    label="Decklist URL"
                     right={<TextInput.Icon name="close" onPress={() => bsc.setSettings({ ...bsc.settings, url: "" })} />}
                     mode="outlined"
                     multiline
