@@ -47,14 +47,14 @@ const Settings = () => {
 
             // Iterate through each card in the list from ygoprodeck and compare Konami IDs to determine the rest of the card's data.
             list.forEach((cardID) => {
-                if (cardID !== "" && cardID !== "!side") {
+                if (cardID !== "") {
                     if (cardID === "#main") {
                         isMain = true
                         isExtra = false
                     } else if (cardID === "#extra") {
                         isMain = false
                         isExtra = true
-                    } else {
+                    } else if (cardID !== "!side") {
                         // Grab the rest of the card's data from the JSON file.
                         const card = cards.find((ele) => ele.konamiID === cardID) as Temp
 
