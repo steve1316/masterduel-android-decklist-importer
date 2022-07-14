@@ -353,7 +353,7 @@ class Game(private val myContext: Context) {
 			// Clear any leftover search query/filters.
 			val clearLocation = imageUtils.findImage("trash", tries = 30)!!
 			gestureUtils.tap(clearLocation.x, clearLocation.y, "trash")
-			wait(1.0)
+			wait(3.0)
 
 			// Process the main deck.
 			printToLog("\n====================")
