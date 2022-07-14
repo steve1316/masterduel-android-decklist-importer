@@ -215,7 +215,7 @@ class Game(private val myContext: Context) {
 			"rarity_$rarityImageFileName", "images", region = intArrayOf(
 				MediaProjectionService.displayWidth / 2, 0, MediaProjectionService.displayWidth / 2,
 				MediaProjectionService.displayHeight
-			)
+			), customConfidence = 0.90
 		)
 
 		Log.d(tag, "Rarity locations found: $rarityLocations")
