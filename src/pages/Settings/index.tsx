@@ -44,6 +44,7 @@ const Settings = () => {
 
             let isMain = false
             let isExtra = false
+            let isSide = false
 
             // Iterate through each card in the list from ygoprodeck and compare Konami IDs to determine the rest of the card's data.
             list.forEach((cardID) => {
@@ -54,44 +55,56 @@ const Settings = () => {
                     } else if (cardID === "#extra") {
                         isMain = false
                         isExtra = true
-                    } else if (cardID !== "!side") {
-                        // Grab the rest of the card's data from the JSON file.
-                        const card = cards.find((ele) => ele.konamiID === cardID) as Temp
-
-                        // Determine if the card already exists in the temp list.
-                        var index = -1
-                        if (isMain) {
-                            index = newDeck.main.findIndex((element) => {
-                                return element.card.name === card.name
-                            })
-                        } else if (isExtra) {
-                            index = newDeck.extra.findIndex((element) => {
-                                return element.card.name === card.name
-                            })
-                        } else {
-                            console.warn("Invalid card element detected.")
+                    } else if (cardID === "!side") {
+                        isSide = true
+                    } else if (!isSide) {
+                        let formatCheck = true
+                        try {
+                            if (Number.isNaN(Number(cardID))) throw Error
+                        } catch {
+                            formatCheck = false
                         }
 
-                        if (index !== -1) {
-                            // If it already exists, then increment the amount.
+                        if (formatCheck) {
+                            // Grab the rest of the card's data from the JSON file.
+                            // In addition, account for cases where the decklist uses alternative artwork so the cardID needs to be incremented by 1.
+                            var card = cards.find((ele) => Number(ele.konamiID) === Number(cardID) || Number(ele.konamiID) === Number(cardID) + 1) as Temp
+
+                            // Determine if the card already exists in the temp list.
+                            var index = -1
                             if (isMain) {
-                                newDeck.main[index].amount += 1
+                                index = newDeck.main.findIndex((element) => {
+                                    return element.card.name === card.name
+                                })
                             } else if (isExtra) {
-                                newDeck.extra[index].amount += 1
-                            }
-                        } else {
-                            // If it does not exist, then push the new card to the temp list.
-                            let newCard: Cards = {
-                                card: {
-                                    name: card.name,
-                                },
-                                amount: 1,
+                                index = newDeck.extra.findIndex((element) => {
+                                    return element.card.name === card.name
+                                })
+                            } else {
+                                console.warn("Invalid card element detected.")
                             }
 
-                            if (isMain) {
-                                newDeck.main.push(newCard)
-                            } else if (isExtra) {
-                                newDeck.extra.push(newCard)
+                            if (index !== -1) {
+                                // If it already exists, then increment the amount.
+                                if (isMain) {
+                                    newDeck.main[index].amount += 1
+                                } else if (isExtra) {
+                                    newDeck.extra[index].amount += 1
+                                }
+                            } else {
+                                // If it does not exist, then push the new card to the temp list.
+                                let newCard: Cards = {
+                                    card: {
+                                        name: card.name,
+                                    },
+                                    amount: 1,
+                                }
+
+                                if (isMain) {
+                                    newDeck.main.push(newCard)
+                                } else if (isExtra) {
+                                    newDeck.extra.push(newCard)
+                                }
                             }
                         }
                     }
@@ -121,6 +134,8 @@ const Settings = () => {
                     main: [],
                     extra: [],
                 }
+
+                console.log("Preparing decklist from masterduelmeta...")
 
                 // Now iterate through main and extra arrays to constuct the deck.
                 deck.main.forEach((data) => {
@@ -168,12 +183,19 @@ const Settings = () => {
                 // Now grab the Deck ID from the URL.
                 const idNumber: number = Number(linkElement.replace("<https://ygoprodeck.com/?p=", "").replace(">; rel=shortlink", "").trim())
 
+                console.log("Preparing decklist from ygoprodeck...")
+
                 // Construct the request object and fetch the list of Konami IDs from the .ydk file using the Deck ID.
                 const request = new XMLHttpRequest()
                 request.onload = (e) => {
                     if (request.status === 200) {
                         // Convert the string into an array of strings split up by the newlines.
-                        setList(request.responseText.split("\n"))
+                        const tempList = request.responseText.split("\n")
+                        tempList.forEach((listItem, index) => {
+                            tempList[index] = listItem.replace("\r", "").replace("\n", "")
+                        })
+
+                        setList(tempList)
                     } else {
                         console.warn("error")
                     }
