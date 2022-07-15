@@ -2,7 +2,7 @@
 
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/steve1316/masterduel-android-decklist-importer?logo=GitHub) ![GitHub last commit](https://img.shields.io/github/last-commit/steve1316/masterduel-android-decklist-importer?logo=GitHub) ![GitHub issues](https://img.shields.io/github/issues/steve1316/masterduel-android-decklist-importer?logo=GitHub) ![GitHub pull requests](https://img.shields.io/github/issues-pr/steve1316/masterduel-android-decklist-importer?logo=GitHub) ![GitHub](https://img.shields.io/github/license/steve1316/masterduel-android-decklist-importer?logo=GitHub)
 
-This application serves to provide an easy way to import a decklist from masterduelmeta by utilizing the Accessibility Service on Android to perform the required automation necessary to do the importing.
+This application serves to provide an easy way to import a decklist from masterduelmeta and ygoprodeck by utilizing the Accessibility Service on Android to perform the required automation necessary to do the importing.
 
 It will first fetch the text version of the decklist from the URL that you provided. Then when the tool starts, it will go through each card and attempt to search them. Finally, it will add the highest finish that you have for that card.
 
@@ -14,7 +14,7 @@ Note: Cards like `One for One`, `Metalfoes Fusion`, etc. that have multiple diff
 
 # Provided Features
 
--   Parses a text version of the decklist from the provided masterduelmeta URL.
+-   Parses a text version of the decklist from the provided masterduelmeta or ygoprodeck URL.
 -   Automatically searches and adds each card from the text decklist into the ingame decklist.
 -   Provides a message log showcasing what happened with each card with a summary at the very end if any cards failed to be added.
 
@@ -30,7 +30,7 @@ Note: Cards like `One for One`, `Metalfoes Fusion`, etc. that have multiple diff
 # Instructions
 
 1. Download the latest .apk from the Releases section on the right side of this page right under the About section and then install the application.
-2. Head to the Settings page in the app to paste in the url from masterduelmeta and press the button to fetch the text form of your chosen decklist. You can double check the message log right underneath it to see the text form of the decklist.
+2. Head to the Settings page in the app to paste in the url from masterduelmeta or ygoprodeck and press the button to fetch the text form of your chosen decklist. You can double check the message log right underneath it to see the text form of the decklist.
 3. Now you can head back to the Home page in the app and press the Start button to begin giving the necessary permissions required for the app to run. After that is done, pressing Start again will display a floating overlay button.
 4. Go into Master Duel and go to create a deck, preferably empty and brand new. Move the overlay button somewhere out of the way and then press it to start the decklist importing process.
 5. When it finishes, a notification will trigger with a message on either success or how many cards failed to be added. You can head on over to the Home page of the app and look at the message log to see what happened.
