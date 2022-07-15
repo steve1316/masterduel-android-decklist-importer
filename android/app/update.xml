@@ -1,14 +1,24 @@
 <AppUpdater>
   <update>
-    <latestVersion>1.0.0</latestVersion>
+    <latestVersion>1.1.0</latestVersion>
     <url>https://github.com/steve1316/android-cv-bot-template/releases</url>
     <releaseNotes>
-v1.0.0 - Changelog
+v1.1.0 - Changelog
 
-- This is the v1.0.0 release.
-- This app can parse a text version of a decklist from a provided masterduelmeta url.
-- It can then import the text decklist into a ingame decklist in Master Duel.
-- More information and known limitations are outlined in the README.
+New
+---
+- Add support for ygoprodeck links by parsing out their decklists.
+
+Changed
+---
+- Updated data for the new selection packs released on 07/11/2022.
+- Change how the search query is submitted to avoid complications with landscape keyboards being too large.
+- Increased the default confidence to find the specified rarity image assets.
+- Increase initial delay before processing the decklist.
+
+Fixed
+---
+- Handles cases where the specified card does not exist in the JSON yet.
     </releaseNotes>
   </update>
 </AppUpdater>
