@@ -11530,6 +11530,11 @@
         "konamiID": "37007105"
     },
     {
+        "name": "D/D/D Vice King Requiem",
+        "rarity": "SR",
+        "konamiID": "25857977"
+    },
+    {
         "name": "D/D/D Super Doom King Bright Armageddon",
         "rarity": "R",
         "konamiID": "72402069"
@@ -17638,11 +17643,6 @@
         "name": "G.B. Hunter",
         "rarity": "SR",
         "konamiID": "4130270"
-    },
-    {
-        "name": "Five Star Twilight",
-        "rarity": "SR",
-        "konamiID": "100278006"
     },
     {
         "name": "Flower Cardian Pine with Crane",
@@ -38590,6 +38590,11 @@
         "konamiID": "79985120"
     },
     {
+        "name": "Crystal Beast Rainbow Dragon",
+        "rarity": "UR",
+        "konamiID": "36795102"
+    },
+    {
         "name": "Reeshaddoll Wendi",
         "rarity": "SR",
         "konamiID": "51023024"
@@ -54955,6 +54960,11 @@
         "konamiID": "81555617"
     },
     {
+        "name": "Beetrooper Scout Buggy",
+        "rarity": "R",
+        "konamiID": "2656842"
+    },
+    {
         "name": "Swordsoul Auspice Chunjun",
         "rarity": "N",
         "konamiID": "29884951"
@@ -55215,6 +55225,11 @@
         "konamiID": "56495147"
     },
     {
+        "name": "Beetrooper Armor Horn",
+        "rarity": "SR",
+        "konamiID": "2834264"
+    },
+    {
         "name": "Borreload Riot Dragon",
         "rarity": "R",
         "konamiID": "7987191"
@@ -55253,6 +55268,11 @@
         "name": "Ursarctic Drytron",
         "rarity": "R",
         "konamiID": "89771220"
+    },
+    {
+        "name": "Beetrooper Sting Lancer",
+        "rarity": "UR",
+        "konamiID": "65430555"
     },
     {
         "name": "Gunkan Suship Shirauo-class Carrier",
@@ -55440,6 +55460,11 @@
         "konamiID": "17000165"
     },
     {
+        "name": "Giant Beetrooper Invincible Atlas",
+        "rarity": "UR",
+        "konamiID": "38229962"
+    },
+    {
         "name": "Floowandereeze & Eglen",
         "rarity": "SR",
         "konamiID": "54334420"
@@ -55498,6 +55523,11 @@
         "name": "Supernatural Danger Zone",
         "rarity": "SR",
         "konamiID": "16165939"
+    },
+    {
+        "name": "Beetrooper Scale Bomber",
+        "rarity": "R",
+        "konamiID": "39041550"
     },
     {
         "name": "Undaunted Bumpkin Beast",
@@ -55600,6 +55630,11 @@
         "konamiID": "40380686"
     },
     {
+        "name": "Beetrooper Formation",
+        "rarity": "R",
+        "konamiID": "64213017"
+    },
+    {
         "name": "Swordsoul Grandmaster - Chixiao",
         "rarity": "UR",
         "konamiID": "69248256"
@@ -55680,6 +55715,36 @@
         "konamiID": "34072799"
     },
     {
+        "name": "Beetrooper Assault Roller",
+        "rarity": "R",
+        "konamiID": "51578214"
+    },
+    {
+        "name": "D/D/D Headhunt",
+        "rarity": "N",
+        "konamiID": "91781484"
+    },
+    {
+        "name": "Dark Dimension Soldier",
+        "rarity": "SR",
+        "konamiID": "109401"
+    },
+    {
+        "name": "Dinomorphia Alert",
+        "rarity": "R",
+        "konamiID": "52020510"
+    },
+    {
+        "name": "Dinomorphia Brute",
+        "rarity": "N",
+        "konamiID": "99414629"
+    },
+    {
+        "name": "Dinomorphia Reversion",
+        "rarity": "SR",
+        "konamiID": "28292031"
+    },
+    {
         "name": "Dracoback, the Rideable Dragon",
         "rarity": "R",
         "konamiID": "38745520"
@@ -55700,6 +55765,11 @@
         "konamiID": "5352328"
     },
     {
+        "name": "Nordic Beast Gullinbursti",
+        "rarity": "SR",
+        "konamiID": "65626958"
+    },
+    {
         "name": "Magician's Salvation",
         "rarity": "SR",
         "konamiID": "95477924"
@@ -55710,9 +55780,29 @@
         "konamiID": "21862633"
     },
     {
+        "name": "Ursarctic Radiation",
+        "rarity": "R",
+        "konamiID": "32692693"
+    },
+    {
+        "name": "Beetrooper Descent",
+        "rarity": "SR",
+        "konamiID": "87240371"
+    },
+    {
         "name": "Cybernetic Horizon",
         "rarity": "SR",
         "konamiID": "63031396"
+    },
+    {
+        "name": "Dinomorphia Kentregina",
+        "rarity": "UR",
+        "konamiID": "48832775"
+    },
+    {
+        "name": "Epsilon The Magnet Warrior",
+        "rarity": "N",
+        "konamiID": "52566270"
     },
     {
         "name": "Exosister Arment",
@@ -55730,9 +55820,19 @@
         "konamiID": "81192859"
     },
     {
+        "name": "Guardian Chimera",
+        "rarity": "UR",
+        "konamiID": "11321089"
+    },
+    {
         "name": "Joruri-P.U.N.K. Nashiwari Surprise",
         "rarity": "N",
         "konamiID": "70070211"
+    },
+    {
+        "name": "Kaiza the Hidden Star",
+        "rarity": "R",
+        "konamiID": "25449584"
     },
     {
         "name": "Leraje the God of Archery",
@@ -55745,14 +55845,54 @@
         "konamiID": "86028783"
     },
     {
+        "name": "Skilled Brown Magician",
+        "rarity": "R",
+        "konamiID": "88232397"
+    },
+    {
         "name": "True Light",
         "rarity": "SR",
         "konamiID": "62089826"
     },
     {
+        "name": "Apex Predation",
+        "rarity": "UR",
+        "konamiID": "25573115"
+    },
+    {
+        "name": "Beetrooper Fly & Sting",
+        "rarity": "SR",
+        "konamiID": "1712616"
+    },
+    {
+        "name": "Beetrooper Landing",
+        "rarity": "N",
+        "konamiID": "13234975"
+    },
+    {
         "name": "Breath of Resurrection",
         "rarity": "R",
         "konamiID": "64018647"
+    },
+    {
+        "name": "Dinomorphia Diplos",
+        "rarity": "N",
+        "konamiID": "38628859"
+    },
+    {
+        "name": "Dinomorphia Domain",
+        "rarity": "UR",
+        "konamiID": "26631975"
+    },
+    {
+        "name": "Dinomorphia Sonic",
+        "rarity": "R",
+        "konamiID": "52807032"
+    },
+    {
+        "name": "Dinomorphia Stealthbergia",
+        "rarity": "SR",
+        "konamiID": "74936480"
     },
     {
         "name": "Exosister Carpedivem",
@@ -55795,6 +55935,11 @@
         "konamiID": "19535693"
     },
     {
+        "name": "Nordic Relic Svalinn",
+        "rarity": "R",
+        "konamiID": "64797746"
+    },
+    {
         "name": "Rite of Aramesir",
         "rarity": "UR",
         "konamiID": "3285551"
@@ -55805,14 +55950,49 @@
         "konamiID": "44708154"
     },
     {
+        "name": "Beetrooper Light Flapper",
+        "rarity": "R",
+        "konamiID": "88962829"
+    },
+    {
+        "name": "Beetrooper Squad",
+        "rarity": "R",
+        "konamiID": "40633084"
+    },
+    {
         "name": "Black Rose Dragon",
         "rarity": "UR",
         "konamiID": "73580472"
     },
     {
+        "name": "D/D Gryphon",
+        "rarity": "SR",
+        "konamiID": "28406301"
+    },
+    {
+        "name": "D/D/D Deviser King Deus Machinex",
+        "rarity": "UR",
+        "konamiID": "46593546"
+    },
+    {
+        "name": "Dinomorphia Shell",
+        "rarity": "R",
+        "konamiID": "25419323"
+    },
+    {
+        "name": "Dinomorphia Therizia",
+        "rarity": "UR",
+        "konamiID": "92133240"
+    },
+    {
         "name": "Dunnell, the Noble Arms of Light",
         "rarity": "N",
         "konamiID": "65952776"
+    },
+    {
+        "name": "Epigonen, the Impersonation Invader",
+        "rarity": "SR",
+        "konamiID": "51611041"
     },
     {
         "name": "Exosister Asophiel",
@@ -55850,6 +56030,16 @@
         "konamiID": "17691568"
     },
     {
+        "name": "Heavy Beetrooper Mighty Neptune",
+        "rarity": "SR",
+        "konamiID": "14357527"
+    },
+    {
+        "name": "Nordic Smith Ivaldi",
+        "rarity": "R",
+        "konamiID": "91011603"
+    },
+    {
         "name": "Joruri-P.U.N.K. Dangerous Gabu",
         "rarity": "N",
         "konamiID": "43685562"
@@ -55865,9 +56055,29 @@
         "konamiID": "14878872"
     },
     {
+        "name": "Dark Contract with Patent License",
+        "rarity": "R",
+        "konamiID": "33814281"
+    },
+    {
         "name": "Ukiyoe-P.U.N.K. Rising Carp",
         "rarity": "UR",
         "konamiID": "18313046"
+    },
+    {
+        "name": "Ultra Beetrooper Absolute Hercules",
+        "rarity": "UR",
+        "konamiID": "50855622"
+    },
+    {
+        "name": "Darton the Mechanical Monstrosity",
+        "rarity": "R",
+        "konamiID": "86271510"
+    },
+    {
+        "name": "Imprudent Intrusion",
+        "rarity": "N",
+        "konamiID": "26357901"
     },
     {
         "name": "Motor Shell",
@@ -55880,9 +56090,29 @@
         "konamiID": "66078354"
     },
     {
+        "name": "Night Sword Serpent",
+        "rarity": "R",
+        "konamiID": "20295753"
+    },
+    {
+        "name": "Nordic Relic Hlidskjalf",
+        "rarity": "SR",
+        "konamiID": "7320132"
+    },
+    {
+        "name": "Ogdoadic Serpent Strike",
+        "rarity": "R",
+        "konamiID": "96203584"
+    },
+    {
         "name": "Puppet Queen",
         "rarity": "R",
         "konamiID": "15001619"
+    },
+    {
+        "name": "Shining Piecephilia",
+        "rarity": "R",
+        "konamiID": "49776811"
     },
     {
         "name": "Starlit Papillon",
