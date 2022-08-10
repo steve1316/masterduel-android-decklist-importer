@@ -1,24 +1,14 @@
 <AppUpdater>
   <update>
-    <latestVersion>1.1.0</latestVersion>
+    <latestVersion>1.2.0</latestVersion>
     <url>https://github.com/steve1316/android-cv-bot-template/releases</url>
     <releaseNotes>
-v1.1.0 - Changelog
-
-New
----
-- Add support for ygoprodeck links by parsing out their decklists.
+v1.2.0 - Changelog
 
 Changed
 ---
-- Updated data for the new selection packs released on 07/11/2022.
-- Change how the search query is submitted to avoid complications with landscape keyboards being too large.
-- Increased the default confidence to find the specified rarity image assets.
-- Increase initial delay before processing the decklist.
+- Updated data for the new selection packs Dinomorphia and Beetroopers released on 08/09/2022.
 
-Fixed
----
-- Handles cases where the specified card does not exist in the JSON yet.
     </releaseNotes>
   </update>
 </AppUpdater>
