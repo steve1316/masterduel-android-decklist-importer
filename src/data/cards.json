@@ -7295,6 +7295,11 @@
         "konamiID": "25880422"
     },
     {
+        "name": "Borrelend Dragon",
+        "rarity": "UR",
+        "konamiID": "98630720"
+    },
+    {
         "name": "Bujincident",
         "rarity": "N",
         "konamiID": "11221418"
@@ -26125,6 +26130,11 @@
         "konamiID": "56294501"
     },
     {
+        "name": "Kaiser Glider - Golden Burst",
+        "rarity": "SR",
+        "konamiID": "41002238"
+    },
+    {
         "name": "Kasha",
         "rarity": "R",
         "konamiID": "52512994"
@@ -32095,6 +32105,11 @@
         "konamiID": "50913601"
     },
     {
+        "name": "Mystical Elf - White Lightning",
+        "rarity": "UR",
+        "konamiID": "15613529"
+    },
+    {
         "name": "Mythic Tree Dragon",
         "rarity": "R",
         "konamiID": "50457953"
@@ -34788,6 +34803,11 @@
         "name": "Nuvia the Wicked",
         "rarity": "N",
         "konamiID": "12953226"
+    },
+    {
+        "name": "Odd-Eyes Rebellion Dragon Overlord",
+        "rarity": "UR",
+        "konamiID": "98452268"
     },
     {
         "name": "Ogre of the Black Shadow",
@@ -54140,11 +54160,6 @@
         "konamiID": "41215808"
     },
     {
-        "name": "XYZ Hyper Cannon",
-        "rarity": "R",
-        "konamiID": "1002800010"
-    },
-    {
         "name": "Noble Knight's Spearholder",
         "rarity": "N",
         "konamiID": "7721912"
@@ -54873,11 +54888,6 @@
         "name": "Zuijin of the Ice Barrier",
         "rarity": "R",
         "konamiID": "43256007"
-    },
-    {
-        "name": "Court of Cards",
-        "rarity": "R",
-        "konamiID": "1002800008"
     },
     {
         "name": "World Legacy - \"World Lance\"",
@@ -55725,9 +55735,9 @@
         "konamiID": "91781484"
     },
     {
-        "name": "Dark Dimension Soldier",
+        "name": "Dharc the Dark Charmer, Gloomy",
         "rarity": "SR",
-        "konamiID": "109401"
+        "konamiID": "8264361"
     },
     {
         "name": "Dinomorphia Alert",
@@ -55743,6 +55753,11 @@
         "name": "Dinomorphia Reversion",
         "rarity": "SR",
         "konamiID": "28292031"
+    },
+    {
+        "name": "Dogmatikamacabre",
+        "rarity": "SR",
+        "konamiID": "60921537"
     },
     {
         "name": "Dracoback, the Rideable Dragon",
@@ -55765,6 +55780,21 @@
         "konamiID": "5352328"
     },
     {
+        "name": "Ghost Fusion",
+        "rarity": "R",
+        "konamiID": "35705817"
+    },
+    {
+        "name": "Ghostrick Festival",
+        "rarity": "UR",
+        "konamiID": "35871958"
+    },
+    {
+        "name": "Ghostrick Siren",
+        "rarity": "SR",
+        "konamiID": "64804316"
+    },
+    {
         "name": "Nordic Beast Gullinbursti",
         "rarity": "SR",
         "konamiID": "65626958"
@@ -55780,14 +55810,39 @@
         "konamiID": "21862633"
     },
     {
+        "name": "Tri-Brigade Mercourier",
+        "rarity": "UR",
+        "konamiID": "19096726"
+    },
+    {
         "name": "Ursarctic Radiation",
         "rarity": "R",
         "konamiID": "32692693"
     },
     {
+        "name": "White Relic of Dogmatika",
+        "rarity": "SR",
+        "konamiID": "48654323"
+    },
+    {
+        "name": "Vision with Eyes of Blue",
+        "rarity": "R",
+        "konamiID": "35659410"
+    },
+    {
         "name": "Beetrooper Descent",
         "rarity": "SR",
         "konamiID": "87240371"
+    },
+    {
+        "name": "Blue-Eyes Jet Dragon",
+        "rarity": "UR",
+        "konamiID": "30576089"
+    },
+    {
+        "name": "Branded Retribution",
+        "rarity": "R",
+        "konamiID": "17751597"
     },
     {
         "name": "Cybernetic Horizon",
@@ -55820,19 +55875,34 @@
         "konamiID": "81192859"
     },
     {
+        "name": "Ghostrick Shot",
+        "rarity": "R",
+        "konamiID": "69809989"
+    },
+    {
         "name": "Guardian Chimera",
         "rarity": "UR",
         "konamiID": "11321089"
     },
     {
+        "name": "Ghost Sleeper, the Underworld Princess",
+        "rarity": "R",
+        "konamiID": "99370594"
+    },
+    {
+        "name": "Ghost Lancer, the Underworld Spearman",
+        "rarity": "R",
+        "konamiID": "64104037"
+    },
+    {
+        "name": "Heritage of the Light",
+        "rarity": "N",
+        "konamiID": "48784854"
+    },
+    {
         "name": "Joruri-P.U.N.K. Nashiwari Surprise",
         "rarity": "N",
         "konamiID": "70070211"
-    },
-    {
-        "name": "Kaiza the Hidden Star",
-        "rarity": "R",
-        "konamiID": "25449584"
     },
     {
         "name": "Leraje the God of Archery",
@@ -55850,9 +55920,19 @@
         "konamiID": "88232397"
     },
     {
+        "name": "Swordsoul Sinister Sovereign - Qixing Longyuan",
+        "rarity": "UR",
+        "konamiID": "47710198"
+    },
+    {
         "name": "True Light",
         "rarity": "SR",
         "konamiID": "62089826"
+    },
+    {
+        "name": "Ultimate Fusion",
+        "rarity": "R",
+        "konamiID": "71143015"
     },
     {
         "name": "Apex Predation",
@@ -55868,6 +55948,21 @@
         "name": "Beetrooper Landing",
         "rarity": "N",
         "konamiID": "13234975"
+    },
+    {
+        "name": "Blue-Eyes Tyrant Dragon",
+        "rarity": "SR",
+        "konamiID": "11443677"
+    },
+    {
+        "name": "Branded Sword",
+        "rarity": "N",
+        "konamiID": "81767888"
+    },
+    {
+        "name": "Branded Fusion",
+        "rarity": "UR",
+        "konamiID": "44362883"
     },
     {
         "name": "Breath of Resurrection",
@@ -55920,6 +56015,11 @@
         "konamiID": "50642380"
     },
     {
+        "name": "Ghost Wyvern, the Underworld Dragon",
+        "rarity": "SR",
+        "konamiID": "61103515"
+    },
+    {
         "name": "Joruri-P.U.N.K. Madame Spider",
         "rarity": "R",
         "konamiID": "82041999"
@@ -55940,9 +56040,19 @@
         "konamiID": "64797746"
     },
     {
+        "name": "Branded Lost",
+        "rarity": "UR",
+        "konamiID": "18973184"
+    },
+    {
         "name": "Rite of Aramesir",
         "rarity": "UR",
         "konamiID": "3285551"
+    },
+    {
+        "name": "Dictator of D.",
+        "rarity": "SR",
+        "konamiID": "66961194"
     },
     {
         "name": "Ukiyoe-P.U.N.K. Amazing Dragon",
@@ -55963,6 +56073,11 @@
         "name": "Black Rose Dragon",
         "rarity": "UR",
         "konamiID": "73580472"
+    },
+    {
+        "name": "Branded Disciple",
+        "rarity": "N",
+        "konamiID": "34536828"
     },
     {
         "name": "D/D Gryphon",
@@ -56030,6 +56145,11 @@
         "konamiID": "17691568"
     },
     {
+        "name": "Ghostrick or Treat",
+        "rarity": "SR",
+        "konamiID": "27170599"
+    },
+    {
         "name": "Heavy Beetrooper Mighty Neptune",
         "rarity": "SR",
         "konamiID": "14357527"
@@ -56045,6 +56165,11 @@
         "konamiID": "43685562"
     },
     {
+        "name": "Lubellion the Searing Dragon",
+        "rarity": "UR",
+        "konamiID": "70534340"
+    },
+    {
         "name": "Noh-P.U.N.K. Ogre Dance",
         "rarity": "SR",
         "konamiID": "81914447"
@@ -56053,6 +56178,11 @@
         "name": "Rescue Cat",
         "rarity": "UR",
         "konamiID": "14878872"
+    },
+    {
+        "name": "Springans Kitt",
+        "rarity": "R",
+        "konamiID": "45484331"
     },
     {
         "name": "Dark Contract with Patent License",
@@ -56068,6 +56198,16 @@
         "name": "Ultra Beetrooper Absolute Hercules",
         "rarity": "UR",
         "konamiID": "50855622"
+    },
+    {
+        "name": "Vampire Fascinator",
+        "rarity": "SR",
+        "konamiID": "72860663"
+    },
+    {
+        "name": "Clear New World",
+        "rarity": "R",
+        "konamiID": "21570001"
     },
     {
         "name": "Darton the Mechanical Monstrosity",
@@ -56088,6 +56228,11 @@
         "name": "Magicore Warrior of the Relics",
         "rarity": "R",
         "konamiID": "66078354"
+    },
+    {
+        "name": "Mirrorjade the Iceblade Dragon",
+        "rarity": "UR",
+        "konamiID": "44146295"
     },
     {
         "name": "Night Sword Serpent",
@@ -56120,9 +56265,34 @@
         "konamiID": "92341815"
     },
     {
+        "name": "Swordsoul Strife",
+        "rarity": "R",
+        "konamiID": "99137266"
+    },
+    {
+        "name": "Top Share",
+        "rarity": "R",
+        "konamiID": "90359458"
+    },
+    {
+        "name": "Tribe Drive",
+        "rarity": "N",
+        "konamiID": "90969892"
+    },
+    {
         "name": "Ukiyoe-P.U.N.K. Sharakusai",
         "rarity": "R",
         "konamiID": "13258285"
+    },
+    {
+        "name": "The Golden Swordsoul",
+        "rarity": "SR",
+        "konamiID": "82489470"
+    },
+    {
+        "name": "The Zombie Vampire",
+        "rarity": "UR",
+        "konamiID": "73082255"
     },
     {
         "name": "Thunder Discharge",
@@ -56133,6 +56303,16 @@
         "name": "Wandering Gryphon Rider",
         "rarity": "UR",
         "konamiID": "2563463"
+    },
+    {
+        "name": "Yakusa, Lord of the Eight Thunders",
+        "rarity": "SR",
+        "konamiID": "90583279"
+    },
+    {
+        "name": "Vampire Ghost",
+        "rarity": "R",
+        "konamiID": "90299015"
     },
     {
         "name": "Water Enchantress of the Temple",
