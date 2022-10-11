@@ -980,6 +980,11 @@
         "konamiID": "91070115"
     },
     {
+        "name": "Ancient Fairy Dragon",
+        "rarity": "UR",
+        "konamiID": "25862681"
+    },
+    {
         "name": "Ancient Tool",
         "rarity": "N",
         "konamiID": "49587396"
@@ -2313,11 +2318,6 @@
         "name": "Ancient Brain",
         "rarity": "N",
         "konamiID": "42431843"
-    },
-    {
-        "name": "Appliancer Conversion",
-        "rarity": "N",
-        "konamiID": "100278044"
     },
     {
         "name": "Assault Beast",
@@ -11115,6 +11115,11 @@
         "konamiID": "35268887"
     },
     {
+        "name": "Dandylion",
+        "rarity": "UR",
+        "konamiID": "15341821"
+    },
+    {
         "name": "Dark Alligator",
         "rarity": "R",
         "konamiID": "34479658"
@@ -12608,6 +12613,11 @@
         "name": "Draghig, Malebranche of the Burning Abyss",
         "rarity": "R",
         "konamiID": "45593826"
+    },
+    {
+        "name": "Decode Talker Heatsoul",
+        "rarity": "UR",
+        "konamiID": "61245672"
     },
     {
         "name": "Diamond Duston",
@@ -19390,6 +19400,11 @@
         "konamiID": "66290900"
     },
     {
+        "name": "Glow-Up Bulb",
+        "rarity": "UR",
+        "konamiID": "67441435"
+    },
+    {
         "name": "Goblin Attack Force",
         "rarity": "N",
         "konamiID": "78658564"
@@ -21460,6 +21475,11 @@
         "konamiID": "53921056"
     },
     {
+        "name": "Giant Trunade",
+        "rarity": "UR",
+        "konamiID": "42703248"
+    },
+    {
         "name": "Gizmek Orochi, the Serpentron Sky Slasher",
         "rarity": "UR",
         "konamiID": "71197066"
@@ -22625,6 +22645,11 @@
         "konamiID": "55321970"
     },
     {
+        "name": "Heavy Storm",
+        "rarity": "UR",
+        "konamiID": "19613556"
+    },
+    {
         "name": "Gryphon Wing",
         "rarity": "N",
         "konamiID": "55608151"
@@ -23575,6 +23600,11 @@
         "konamiID": "80141480"
     },
     {
+        "name": "Graceful Charity",
+        "rarity": "UR",
+        "konamiID": "79571449"
+    },
+    {
         "name": "Gravekeeper's Nobleman",
         "rarity": "SR",
         "konamiID": "85646474"
@@ -24020,6 +24050,11 @@
         "konamiID": "73941492"
     },
     {
+        "name": "Harpie's Pet Dragon - Fearsome Fire Blast",
+        "rarity": "SR",
+        "konamiID": "4991081"
+    },
+    {
         "name": "Helpoemer",
         "rarity": "R",
         "konamiID": "76052811"
@@ -24048,6 +24083,11 @@
         "name": "Greed Quasar",
         "rarity": "R",
         "konamiID": "50263751"
+    },
+    {
+        "name": "Grinder Golem",
+        "rarity": "UR",
+        "konamiID": "75732622"
     },
     {
         "name": "Hazy Glory",
@@ -28608,6 +28648,11 @@
         "name": "Lesser Dragon",
         "rarity": "N",
         "konamiID": "55444629"
+    },
+    {
+        "name": "Level Eater",
+        "rarity": "SR",
+        "konamiID": "57421866"
     },
     {
         "name": "Limit Reverse",
@@ -34960,6 +35005,11 @@
         "konamiID": "62472614"
     },
     {
+        "name": "Pot of Greed",
+        "rarity": "UR",
+        "konamiID": "55144522"
+    },
+    {
         "name": "Prediction Princess Tarotrei",
         "rarity": "UR",
         "konamiID": "94997874"
@@ -37078,6 +37128,11 @@
         "name": "Power Tool Mecha Dragon",
         "rarity": "UR",
         "konamiID": "68084557"
+    },
+    {
+        "name": "Premature Burial",
+        "rarity": "UR",
+        "konamiID": "70828912"
     },
     {
         "name": "Performapal Call",
@@ -44990,6 +45045,11 @@
         "konamiID": "23770284"
     },
     {
+        "name": "Snatch Steal",
+        "rarity": "UR",
+        "konamiID": "45986603"
+    },
+    {
         "name": "Soul of Silvermountain",
         "rarity": "R",
         "konamiID": "91895091"
@@ -45093,6 +45153,11 @@
         "name": "Spellbook Library of the Crescent",
         "rarity": "R",
         "konamiID": "40230018"
+    },
+    {
+        "name": "Spellbook of Judgment",
+        "rarity": "SR",
+        "konamiID": "46448938"
     },
     {
         "name": "Splendid Rose",
@@ -54055,11 +54120,6 @@
         "konamiID": "91998119"
     },
     {
-        "name": "Yowie",
-        "rarity": "R",
-        "konamiID": "100278007"
-    },
-    {
         "name": "ZW - Dragonic Halberd",
         "rarity": "SR",
         "konamiID": "2896663"
@@ -55730,9 +55790,19 @@
         "konamiID": "51578214"
     },
     {
+        "name": "Crystal Shark",
+        "rarity": "R",
+        "konamiID": "98881700"
+    },
+    {
         "name": "D/D/D Headhunt",
         "rarity": "N",
         "konamiID": "91781484"
+    },
+    {
+        "name": "Dark Dimension Soldier",
+        "rarity": "SR",
+        "konamiID": "109401"
     },
     {
         "name": "Dharc the Dark Charmer, Gloomy",
@@ -55763,6 +55833,11 @@
         "name": "Dracoback, the Rideable Dragon",
         "rarity": "R",
         "konamiID": "38745520"
+    },
+    {
+        "name": "Seventh Eternity",
+        "rarity": "R",
+        "konamiID": "60158866"
     },
     {
         "name": "Exosister Irene",
@@ -55805,6 +55880,21 @@
         "konamiID": "95477924"
     },
     {
+        "name": "Marincess Bubble Ring",
+        "rarity": "R",
+        "konamiID": "19712214"
+    },
+    {
+        "name": "Marincess Coral Triangle",
+        "rarity": "UR",
+        "konamiID": "84546257"
+    },
+    {
+        "name": "Marincess Sleepy Maiden",
+        "rarity": "R",
+        "konamiID": "57541158"
+    },
+    {
         "name": "Piercing the Darkness",
         "rarity": "SR",
         "konamiID": "21862633"
@@ -55828,6 +55918,11 @@
         "name": "Vision with Eyes of Blue",
         "rarity": "R",
         "konamiID": "35659410"
+    },
+    {
+        "name": "Barian's Chaos Draw",
+        "rarity": "UR",
+        "konamiID": "97769122"
     },
     {
         "name": "Beetrooper Descent",
@@ -55870,6 +55965,11 @@
         "konamiID": "43863925"
     },
     {
+        "name": "Floowandereeze and the Advent of Adventure",
+        "rarity": "UR",
+        "konamiID": "69087397"
+    },
+    {
         "name": "Gagaku-P.U.N.K. Wild Picking",
         "rarity": "N",
         "konamiID": "81192859"
@@ -55878,6 +55978,11 @@
         "name": "Ghostrick Shot",
         "rarity": "R",
         "konamiID": "69809989"
+    },
+    {
+        "name": "Giltia the D. Knight - Soul Spear",
+        "rarity": "R",
+        "konamiID": "77406972"
     },
     {
         "name": "Guardian Chimera",
@@ -55900,14 +56005,34 @@
         "konamiID": "48784854"
     },
     {
+        "name": "Icejade Cenote Enion Cradle",
+        "rarity": "UR",
+        "konamiID": "7142724"
+    },
+    {
         "name": "Joruri-P.U.N.K. Nashiwari Surprise",
         "rarity": "N",
         "konamiID": "70070211"
     },
     {
+        "name": "Ocean Dragon Lord - Kairyu-Shin",
+        "rarity": "UR",
+        "konamiID": "23931679"
+    },
+    {
+        "name": "Kaiza the Hidden Star",
+        "rarity": "R",
+        "konamiID": "25449584"
+    },
+    {
         "name": "Leraje the God of Archery",
         "rarity": "R",
         "konamiID": "49922726"
+    },
+    {
+        "name": "Marincess Aqua Argonaut",
+        "rarity": "UR",
+        "konamiID": "20934852"
     },
     {
         "name": "Rookie Warrior Lady",
@@ -55940,6 +56065,16 @@
         "konamiID": "25573115"
     },
     {
+        "name": "Abyss Keeper",
+        "rarity": "R",
+        "konamiID": "82184400"
+    },
+    {
+        "name": "Abyss Shark",
+        "rarity": "SR",
+        "konamiID": "61496006"
+    },
+    {
         "name": "Beetrooper Fly & Sting",
         "rarity": "SR",
         "konamiID": "1712616"
@@ -55968,6 +56103,11 @@
         "name": "Breath of Resurrection",
         "rarity": "R",
         "konamiID": "64018647"
+    },
+    {
+        "name": "CXyz N.As.Ch. Knight",
+        "rarity": "UR",
+        "konamiID": "61374414"
     },
     {
         "name": "Dinomorphia Diplos",
@@ -56020,9 +56160,34 @@
         "konamiID": "61103515"
     },
     {
+        "name": "Icejade Aegirine",
+        "rarity": "SR",
+        "konamiID": "39354437"
+    },
+    {
+        "name": "Icejade Kosmochlor",
+        "rarity": "UR",
+        "konamiID": "3355732"
+    },
+    {
         "name": "Joruri-P.U.N.K. Madame Spider",
         "rarity": "R",
         "konamiID": "82041999"
+    },
+    {
+        "name": "Kairyu-Shin's Dark Reef",
+        "rarity": "R",
+        "konamiID": "95602345"
+    },
+    {
+        "name": "Leafplace Plaice",
+        "rarity": "N",
+        "konamiID": "50599453"
+    },
+    {
+        "name": "Marincess Springirl",
+        "rarity": "SR",
+        "konamiID": "21057444"
     },
     {
         "name": "Noh-P.U.N.K. Foxy Tune",
@@ -56043,6 +56208,16 @@
         "name": "Branded Lost",
         "rarity": "UR",
         "konamiID": "18973184"
+    },
+    {
+        "name": "Sales Ban",
+        "rarity": "UR",
+        "konamiID": "64964750"
+    },
+    {
+        "name": "Reincarnation of the Seventh Emperors",
+        "rarity": "R",
+        "konamiID": "57499304"
     },
     {
         "name": "Rite of Aramesir",
@@ -56080,6 +56255,11 @@
         "konamiID": "34536828"
     },
     {
+        "name": "Chaos Nephthys",
+        "rarity": "SR",
+        "konamiID": "24226942"
+    },
+    {
         "name": "D/D Gryphon",
         "rarity": "SR",
         "konamiID": "28406301"
@@ -56098,6 +56278,11 @@
         "name": "Dinomorphia Therizia",
         "rarity": "UR",
         "konamiID": "92133240"
+    },
+    {
+        "name": "Doom Kraken",
+        "rarity": "SR",
+        "konamiID": "69436288"
     },
     {
         "name": "Dunnell, the Noble Arms of Light",
@@ -56140,6 +56325,11 @@
         "konamiID": "28270534"
     },
     {
+        "name": "Fish Sonar",
+        "rarity": "SR",
+        "konamiID": "22819092"
+    },
+    {
         "name": "Gagaku-P.U.N.K. Crash Beat",
         "rarity": "N",
         "konamiID": "17691568"
@@ -56153,6 +56343,16 @@
         "name": "Heavy Beetrooper Mighty Neptune",
         "rarity": "SR",
         "konamiID": "14357527"
+    },
+    {
+        "name": "Icejade Erosion",
+        "rarity": "R",
+        "konamiID": "53742162"
+    },
+    {
+        "name": "Icejade Creation Kingfisher",
+        "rarity": "SR",
+        "konamiID": "66749546"
     },
     {
         "name": "Nordic Smith Ivaldi",
@@ -56170,14 +56370,34 @@
         "konamiID": "70534340"
     },
     {
+        "name": "Marincess Circulation",
+        "rarity": "R",
+        "konamiID": "83723605"
+    },
+    {
+        "name": "Marincess Dive",
+        "rarity": "SR",
+        "konamiID": "57329501"
+    },
+    {
         "name": "Noh-P.U.N.K. Ogre Dance",
         "rarity": "SR",
         "konamiID": "81914447"
     },
     {
-        "name": "Rescue Cat",
+        "name": "Numbers Eveil",
         "rarity": "UR",
-        "konamiID": "14878872"
+        "konamiID": "20994205"
+    },
+    {
+        "name": "Electric Jellyfish",
+        "rarity": "N",
+        "konamiID": "95824983"
+    },
+    {
+        "name": "Sea Stealth II",
+        "rarity": "R",
+        "konamiID": "58203736"
     },
     {
         "name": "Springans Kitt",
@@ -56220,6 +56440,16 @@
         "konamiID": "26357901"
     },
     {
+        "name": "Mad Hacker",
+        "rarity": "R",
+        "konamiID": "86993168"
+    },
+    {
+        "name": "Mega Fortress Whale",
+        "rarity": "UR",
+        "konamiID": "96546575"
+    },
+    {
         "name": "Motor Shell",
         "rarity": "N",
         "konamiID": "78394032"
@@ -56240,6 +56470,11 @@
         "konamiID": "20295753"
     },
     {
+        "name": "N.As.H. Knight",
+        "rarity": "UR",
+        "konamiID": "34876719"
+    },
+    {
         "name": "Nordic Relic Hlidskjalf",
         "rarity": "SR",
         "konamiID": "7320132"
@@ -56250,14 +56485,29 @@
         "konamiID": "96203584"
     },
     {
+        "name": "Rebirth of the Seventh Emperors",
+        "rarity": "N",
+        "konamiID": "83888009"
+    },
+    {
         "name": "Puppet Queen",
         "rarity": "R",
         "konamiID": "15001619"
     },
     {
+        "name": "Submareed Tour Ride",
+        "rarity": "N",
+        "konamiID": "87116749"
+    },
+    {
         "name": "Shining Piecephilia",
         "rarity": "R",
         "konamiID": "49776811"
+    },
+    {
+        "name": "Simorgh, Bird of Perfection",
+        "rarity": "R",
+        "konamiID": "52843699"
     },
     {
         "name": "Starlit Papillon",
@@ -56285,6 +56535,11 @@
         "konamiID": "13258285"
     },
     {
+        "name": "The Agent of Destruction - Venus",
+        "rarity": "R",
+        "konamiID": "99054885"
+    },
+    {
         "name": "The Golden Swordsoul",
         "rarity": "SR",
         "konamiID": "82489470"
@@ -56308,6 +56563,11 @@
         "name": "Yakusa, Lord of the Eight Thunders",
         "rarity": "SR",
         "konamiID": "90583279"
+    },
+    {
+        "name": "Yorishiro of the Aqua",
+        "rarity": "SR",
+        "konamiID": "57511992"
     },
     {
         "name": "Vampire Ghost",
