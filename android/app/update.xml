@@ -1,13 +1,14 @@
 <AppUpdater>
   <update>
-    <latestVersion>1.3.0</latestVersion>
+    <latestVersion>1.4.0</latestVersion>
     <url>https://github.com/steve1316/masterduel-android-decklist-importer/releases</url>
     <releaseNotes>
-v1.3.0 - Changelog
+v1.4.0 - Changelog
 
 Changed
 ---
-- Updated data for the new selection pack The Newborn Dragon released on 09/09/2022.
+- Updated data for the new selection pack Cosmic Ocean released on 10/11/2022.
+- Reduced delay after a tap.
 
     </releaseNotes>
   </update>
