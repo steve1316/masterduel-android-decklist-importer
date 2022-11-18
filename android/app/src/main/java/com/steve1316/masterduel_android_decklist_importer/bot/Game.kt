@@ -26,7 +26,7 @@ class Game(private val myContext: Context) {
 	private val startTime: Long = System.currentTimeMillis()
 
 	val configData: ConfigData = ConfigData(myContext)
-	val imageUtils: ImageUtils = ImageUtils(myContext, this)
+	private val imageUtils: ImageUtils = ImageUtils(myContext, this)
 	val gestureUtils: MyAccessibilityService = MyAccessibilityService.getInstance()
 
 	private val failedCards: MutableMap<String, String> = mutableMapOf()
@@ -144,10 +144,10 @@ class Game(private val myContext: Context) {
 				return false
 			}
 
-			printToLog("\n[INFO] Searching ${CardNameData.name} from the main deck.")
+			printToLog("\n[SEARCH] Searching ${CardNameData.name} from the main deck...")
 		} else {
 			CardNameData.name = Deck.extra[index].name
-			printToLog("\n[INFO] Searching ${CardNameData.name} from the extra deck.")
+			printToLog("\n[SEARCH] Searching ${CardNameData.name} from the extra deck...")
 		}
 
 		// Activate the keyboard for the search bar.
@@ -162,7 +162,7 @@ class Game(private val myContext: Context) {
 			gestureUtils.tap(MediaProjectionService.displayWidth / 2.0, 100.0, "text_search")
 			wait(2.0)
 
-			printToLog("[INFO] Successfully submitted search query.")
+			printToLog("[SEARCH] Successfully submitted search query.")
 
 			true
 		} else {
@@ -212,7 +212,7 @@ class Game(private val myContext: Context) {
 		printToLog("[INFO] Detected rarity of $cardName is $rarity.")
 
 		val rarityLocations = imageUtils.findAll(
-			"rarity_$rarityImageFileName", "images", region = intArrayOf(
+			"rarity_$rarityImageFileName", region = intArrayOf(
 				MediaProjectionService.displayWidth / 2, 0, MediaProjectionService.displayWidth / 2,
 				MediaProjectionService.displayHeight
 			), customConfidence = 0.90
@@ -288,7 +288,7 @@ class Game(private val myContext: Context) {
 				i++
 			}
 
-			printToLog("[INFO] Added x$amount $cardName.")
+			printToLog("[SUCCESS] Added x$amount $cardName.")
 
 			exitCardDescriptionScreen()
 
@@ -358,12 +358,13 @@ class Game(private val myContext: Context) {
 			wait(3.0)
 
 			// Process the main deck.
-			printToLog("\n====================")
+			printToLog("\n**************************************")
 			printToLog("[INFO] Starting processing of the Main deck...")
+			printToLog("**************************************")
 			var i = 0
 			while (i < Deck.main.size) {
 				// Submit the search query first.
-				if(searchCard(i)) {
+				if (searchCard(i)) {
 					// Check the rarity of the card and compare to the rarities of the cards returned from the search query.
 					processSearchResults(i)
 				}
@@ -372,8 +373,9 @@ class Game(private val myContext: Context) {
 			}
 
 			// Process the extra deck.
-			printToLog("\n====================")
+			printToLog("\n**************************************")
 			printToLog("[INFO] Starting processing of the Extra deck...")
+			printToLog("**************************************")
 			i = 0
 			while (i < Deck.extra.size) {
 				// Submit the search query first.
@@ -385,16 +387,18 @@ class Game(private val myContext: Context) {
 				i++
 			}
 
-			printToLog("\n====================")
+			printToLog("\n**************************************")
 			printToLog("[SUCCESS] Finished added the decklist.")
+			printToLog("**************************************\n")
 
 			// Print out any cards that failed.
 			if (failedCards.isNotEmpty()) {
-				printToLog("\n====================")
-				printToLog("${failedCards.size} card(s) failed:\n")
+				printToLog("**************************************")
+				printToLog("${failedCards.size} card(s) failed:")
 				failedCards.keys.forEach { cardName ->
-					printToLog("$cardName - ${failedCards[cardName]}\n")
+					printToLog("$cardName - ${failedCards[cardName]}")
 				}
+				printToLog("**************************************\n")
 			}
 		} else {
 			throw Exception("Unable to detect if the bot is at the Create a Deck screen.")
@@ -402,7 +406,7 @@ class Game(private val myContext: Context) {
 
 		val endTime: Long = System.currentTimeMillis()
 		val runTime: Long = endTime - startTime
-		printToLog("Total Runtime: ${runTime}ms")
+		printToLog("Total Runtime: ${runTime}ms\n")
 
 		return failedCards.size
 	}
