@@ -16380,6 +16380,11 @@
         "konamiID": "52140003"
     },
     {
+        "name": "Elder Entity Norden",
+        "rarity": "UR",
+        "konamiID": "17412721"
+    },
+    {
         "name": "Energy-Absorbing Monolith",
         "rarity": "N",
         "konamiID": "57006589"
@@ -24065,11 +24070,6 @@
         "konamiID": "9753964"
     },
     {
-        "name": "Ice Mirror",
-        "rarity": "N",
-        "konamiID": "100278024"
-    },
-    {
         "name": "Gravekeeper's Watcher",
         "rarity": "N",
         "konamiID": "26084285"
@@ -28910,6 +28910,11 @@
         "konamiID": "100278031"
     },
     {
+        "name": "Lavalval Chain",
+        "rarity": "UR",
+        "konamiID": "34086406"
+    },
+    {
         "name": "Level Limit - Area A",
         "rarity": "N",
         "konamiID": "54976796"
@@ -29773,6 +29778,11 @@
         "name": "Miracle Contact",
         "rarity": "SR",
         "konamiID": "35255456"
+    },
+    {
+        "name": "Mirage of Nightmare",
+        "rarity": "SR",
+        "konamiID": "41482598"
     },
     {
         "name": "Mist Bird Clausolas",
@@ -31100,6 +31110,11 @@
         "konamiID": "93600443"
     },
     {
+        "name": "Metamorphosis",
+        "rarity": "SR",
+        "konamiID": "46411259"
+    },
+    {
         "name": "Meteor Flare",
         "rarity": "N",
         "konamiID": "56856951"
@@ -31493,6 +31508,11 @@
         "name": "Number 102: Star Seraph Sentry",
         "rarity": "R",
         "konamiID": "49678559"
+    },
+    {
+        "name": "Number 16: Shock Master",
+        "rarity": "UR",
+        "konamiID": "54719828"
     },
     {
         "name": "Monster Eye",
@@ -34858,6 +34878,11 @@
         "name": "Ogre of the Black Shadow",
         "rarity": "N",
         "konamiID": "45121025"
+    },
+    {
+        "name": "Outer Entity Azathot",
+        "rarity": "UR",
+        "konamiID": "34945480"
     },
     {
         "name": "Number 53: Heart-eartH",
@@ -38623,6 +38648,11 @@
         "name": "Performapal Sky Pupil",
         "rarity": "N",
         "konamiID": "122520"
+    },
+    {
+        "name": "Phoenixian Cluster Amaryllis",
+        "rarity": "SR",
+        "konamiID": "23558733"
     },
     {
         "name": "Photon Caesar",
@@ -55720,6 +55750,11 @@
         "konamiID": "16605586"
     },
     {
+        "name": "Dimension Conjurer",
+        "rarity": "R",
+        "konamiID": "101107002"
+    },
+    {
         "name": "Swordsoul Strategist Longyuan",
         "rarity": "R",
         "konamiID": "93490856"
@@ -55835,6 +55870,11 @@
         "konamiID": "38745520"
     },
     {
+        "name": "End of the Line",
+        "rarity": "UR",
+        "konamiID": "53442500"
+    },
+    {
         "name": "Seventh Eternity",
         "rarity": "R",
         "konamiID": "60158866"
@@ -55898,6 +55938,11 @@
         "name": "Piercing the Darkness",
         "rarity": "SR",
         "konamiID": "21862633"
+    },
+    {
+        "name": "Musical Sumo Dice Games",
+        "rarity": "UR",
+        "konamiID": "96637156"
     },
     {
         "name": "Tri-Brigade Mercourier",
@@ -56033,6 +56078,11 @@
         "name": "Marincess Aqua Argonaut",
         "rarity": "UR",
         "konamiID": "20934852"
+    },
+    {
+        "name": "Odd-Eyes Pendulumgraph Dragon",
+        "rarity": "UR",
+        "konamiID": "66425726"
     },
     {
         "name": "Rookie Warrior Lady",
@@ -56210,6 +56260,11 @@
         "konamiID": "18973184"
     },
     {
+        "name": "Performapal Gentrude",
+        "rarity": "SR",
+        "konamiID": "21949879"
+    },
+    {
         "name": "Sales Ban",
         "rarity": "UR",
         "konamiID": "64964750"
@@ -56235,6 +56290,11 @@
         "konamiID": "44708154"
     },
     {
+        "name": "Seventh Ascension",
+        "rarity": "UR",
+        "konamiID": "23153227"
+    },
+    {
         "name": "Beetrooper Light Flapper",
         "rarity": "R",
         "konamiID": "88962829"
@@ -56243,6 +56303,11 @@
         "name": "Beetrooper Squad",
         "rarity": "R",
         "konamiID": "40633084"
+    },
+    {
+        "name": "Beyond the Pendulum",
+        "rarity": "UR",
+        "konamiID": "22125101"
     },
     {
         "name": "Black Rose Dragon",
@@ -56320,6 +56385,11 @@
         "konamiID": "77891946"
     },
     {
+        "name": "Extra Pendulum",
+        "rarity": "SR",
+        "konamiID": "58308221"
+    },
+    {
         "name": "FA.I.ghting Spirit",
         "rarity": "R",
         "konamiID": "28270534"
@@ -56363,6 +56433,11 @@
         "name": "Joruri-P.U.N.K. Dangerous Gabu",
         "rarity": "N",
         "konamiID": "43685562"
+    },
+    {
+        "name": "Primitive Planet Reichphobia",
+        "rarity": "UR",
+        "konamiID": "56063182"
     },
     {
         "name": "Lubellion the Searing Dragon",
@@ -56425,6 +56500,61 @@
         "konamiID": "72860663"
     },
     {
+        "name": "Hojo the Vaylantz Warrior",
+        "rarity": "N",
+        "konamiID": "88919365"
+    },
+    {
+        "name": "Nazuki the Vaylantz Ninja",
+        "rarity": "R",
+        "konamiID": "41525660"
+    },
+    {
+        "name": "Shinonome the Vaylantz Priestess",
+        "rarity": "SR",
+        "konamiID": "49131917"
+    },
+    {
+        "name": "Vaylantz World - Konig Wissen",
+        "rarity": "UR",
+        "konamiID": "75952542"
+    },
+    {
+        "name": "Vaylantz World - Shinra Bansho",
+        "rarity": "UR",
+        "konamiID": "49568943"
+    },
+    {
+        "name": "Vaylantz Buster Baron",
+        "rarity": "R",
+        "konamiID": "14418464"
+    },
+    {
+        "name": "Vaylantz Dominator Duke",
+        "rarity": "N",
+        "konamiID": "13291886"
+    },
+    {
+        "name": "Vaylantz Genesis Grand Duke",
+        "rarity": "SR",
+        "konamiID": "76075139"
+    },
+    {
+        "name": "Vaylantz Mad Marquess",
+        "rarity": "N",
+        "konamiID": "87897777"
+    },
+    {
+        "name": "Vaylantz Wars - The Place of Beginning",
+        "rarity": "R",
+        "konamiID": "13179234"
+    },
+    {
+        "name": "Vaylantz Voltage Viscount",
+        "rarity": "N",
+        "konamiID": "41802073"
+    },
+    {
         "name": "Clear New World",
         "rarity": "R",
         "konamiID": "21570001"
@@ -56450,6 +56580,11 @@
         "konamiID": "96546575"
     },
     {
+        "name": "Monster Rebirth",
+        "rarity": "SR",
+        "konamiID": "54564198"
+    },
+    {
         "name": "Motor Shell",
         "rarity": "N",
         "konamiID": "78394032"
@@ -56465,14 +56600,44 @@
         "konamiID": "44146295"
     },
     {
+        "name": "Performapal Duelist Extraordinaire",
+        "rarity": "SR",
+        "konamiID": "92644052"
+    },
+    {
         "name": "Night Sword Serpent",
         "rarity": "R",
         "konamiID": "20295753"
     },
     {
+        "name": "Pendulum Scale",
+        "rarity": "R",
+        "konamiID": "101108069"
+    },
+    {
+        "name": "Performapal Odd-Eyes Butler",
+        "rarity": "R",
+        "konamiID": "56677752"
+    },
+    {
+        "name": "Performapal Odd-Eyes Valet",
+        "rarity": "SR",
+        "konamiID": "82661461"
+    },
+    {
+        "name": "Performapal Ladyange",
+        "rarity": "SR",
+        "konamiID": "58938528"
+    },
+    {
         "name": "N.As.H. Knight",
         "rarity": "UR",
         "konamiID": "34876719"
+    },
+    {
+        "name": "Neiroy, the Dream Mirror Traitor",
+        "rarity": "SR",
+        "konamiID": "90176467"
     },
     {
         "name": "Nordic Relic Hlidskjalf",
@@ -56485,14 +56650,79 @@
         "konamiID": "96203584"
     },
     {
+        "name": "Performapal BaroKuriboh",
+        "rarity": "SR",
+        "konamiID": "19050066"
+    },
+    {
+        "name": "Performapal ClassiKuriboh",
+        "rarity": "SR",
+        "konamiID": "55554175"
+    },
+    {
+        "name": "Scareclaw Alternative",
+        "rarity": "SR",
+        "konamiID": "5941982"
+    },
+    {
+        "name": "Scareclaw Tri-Heart",
+        "rarity": "UR",
+        "konamiID": "59120809"
+    },
+    {
         "name": "Rebirth of the Seventh Emperors",
         "rarity": "N",
         "konamiID": "83888009"
     },
     {
+        "name": "Scareclaw Astra",
+        "rarity": "N",
+        "konamiID": "83488497"
+    },
+    {
+        "name": "Scareclaw Light-Heart",
+        "rarity": "UR",
+        "konamiID": "53776969"
+    },
+    {
+        "name": "Scareclaw Straddle",
+        "rarity": "SR",
+        "konamiID": "41619242"
+    },
+    {
+        "name": "Scareclaw Acro",
+        "rarity": "N",
+        "konamiID": "46877100"
+    },
+    {
+        "name": "Scareclaw Belone",
+        "rarity": "N",
+        "konamiID": "19882096"
+    },
+    {
+        "name": "Scareclaw Arrival",
+        "rarity": "R",
+        "konamiID": "83558891"
+    },
+    {
+        "name": "Scareclaw Reichheart",
+        "rarity": "UR",
+        "konamiID": "82361809"
+    },
+    {
         "name": "Puppet Queen",
         "rarity": "R",
         "konamiID": "15001619"
+    },
+    {
+        "name": "Saion the Vaylantz Archer",
+        "rarity": "N",
+        "konamiID": "15130912"
+    },
+    {
+        "name": "Scareclaw Sclash",
+        "rarity": "R",
+        "konamiID": "79552283"
     },
     {
         "name": "Submareed Tour Ride",
@@ -56518,6 +56748,11 @@
         "name": "Swordsoul Strife",
         "rarity": "R",
         "konamiID": "99137266"
+    },
+    {
+        "name": "Soul of the Supreme King",
+        "rarity": "UR",
+        "konamiID": "92428405"
     },
     {
         "name": "Top Share",
@@ -56555,6 +56790,11 @@
         "konamiID": "27623932"
     },
     {
+        "name": "Uradora of Fate",
+        "rarity": "UR",
+        "konamiID": "27753563"
+    },
+    {
         "name": "Wandering Gryphon Rider",
         "rarity": "UR",
         "konamiID": "2563463"
@@ -56570,6 +56810,11 @@
         "konamiID": "57511992"
     },
     {
+        "name": "Visas Starfrost",
+        "rarity": "UR",
+        "konamiID": "56099748"
+    },
+    {
         "name": "Vampire Ghost",
         "rarity": "R",
         "konamiID": "90299015"
@@ -56583,5 +56828,20 @@
         "name": "Zaralaam the Dark Palace",
         "rarity": "N",
         "konamiID": "64230128"
+    },
+    {
+        "name": "Patissciel Couverture",
+        "rarity": "SR",
+        "konamiID": "26435595"
+    },
+    {
+        "name": "Omega Judgment",
+        "rarity": "N",
+        "konamiID": "53923690"
+    },
+    {
+        "name": "Mamonaka the Vaylantz United",
+        "rarity": "UR",
+        "konamiID": "40680521"
     }
 ]
