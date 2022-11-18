@@ -355,7 +355,7 @@ class Game(private val myContext: Context) {
 			gestureUtils.tap(clearLocation.x, clearLocation.y, "trash")
 
 			// Wait for the service notification to go away.
-			wait(3.0)
+			wait(2.0)
 
 			// Process the main deck.
 			printToLog("\n**************************************")
