@@ -55825,6 +55825,11 @@
         "konamiID": "51578214"
     },
     {
+        "name": "Branded Banishment",
+        "rarity": "SR",
+        "konamiID": "6763530"
+    },
+    {
         "name": "Crystal Shark",
         "rarity": "R",
         "konamiID": "98881700"
@@ -56125,6 +56130,11 @@
         "konamiID": "61496006"
     },
     {
+        "name": "Alba-Lenatus the Abyss Dragon",
+        "rarity": "UR",
+        "konamiID": "3410461"
+    },
+    {
         "name": "Beetrooper Fly & Sting",
         "rarity": "SR",
         "konamiID": "1712616"
@@ -56315,6 +56325,11 @@
         "konamiID": "73580472"
     },
     {
+        "name": "Branded Loss",
+        "rarity": "R",
+        "konamiID": "10065487"
+    },
+    {
         "name": "Branded Disciple",
         "rarity": "N",
         "konamiID": "34536828"
@@ -56343,6 +56358,11 @@
         "name": "Dinomorphia Therizia",
         "rarity": "UR",
         "konamiID": "92133240"
+    },
+    {
+        "name": "Dogmatikaturgy",
+        "rarity": "N",
+        "konamiID": "42158279"
     },
     {
         "name": "Doom Kraken",
@@ -56553,6 +56573,16 @@
         "name": "Vaylantz Voltage Viscount",
         "rarity": "N",
         "konamiID": "41802073"
+    },
+    {
+        "name": "Branded in Central Dogmatika",
+        "rarity": "N",
+        "konamiID": "14220547"
+    },
+    {
+        "name": "Branded Expulsion",
+        "rarity": "N",
+        "konamiID": "1041278"
     },
     {
         "name": "Clear New World",
