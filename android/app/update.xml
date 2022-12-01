@@ -1,24 +1,13 @@
 <AppUpdater>
   <update>
-    <latestVersion>1.5.0</latestVersion>
+    <latestVersion>1.6.0</latestVersion>
     <url>https://github.com/steve1316/masterduel-android-decklist-importer/releases</url>
     <releaseNotes>
-v1.5.0 - Changelog
+v1.6.0 - Changelog
 
 New 
 ---
-- Update data up to the Battle Trajectory selection pack.
-
-Changed
----
-- Lower font size to 8px for the MessageLog component.
-- Brought over changes and improvements from GIS project.
-- Various changes for log messages.
-- Reduce delay before beginning operations by 1 second.
-
-Fixed
----
-- Fix AccessibilityService not waiting for the actual gesture to finish.
+- Update data up to the Alba Abyss secret pack.
 
     </releaseNotes>
   </update>

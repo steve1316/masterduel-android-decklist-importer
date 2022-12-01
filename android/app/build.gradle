@@ -141,8 +141,8 @@ android {
         applicationId "com.steve1316.masterduel_android_decklist_importer"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 6
-        versionName "1.5.0"
+        versionCode 7
+        versionName "1.6.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
