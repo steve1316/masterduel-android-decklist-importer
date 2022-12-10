@@ -50160,7 +50160,7 @@
         "konamiID": "82738277"
     },
     {
-        "name": "Tri-gate Wizard",
+        "name": "Tri-Gate Wizard",
         "rarity": "SR",
         "konamiID": "32617464"
     },
@@ -54080,11 +54080,6 @@
         "konamiID": "88472456"
     },
     {
-        "name": "Arcana Triumph Joker",
-        "rarity": "UR",
-        "konamiID": "1002800001"
-    },
-    {
         "name": "World Legacy's Memory",
         "rarity": "R",
         "konamiID": "68191756"
@@ -54488,11 +54483,6 @@
         "name": "Zoodiac Tigermortar",
         "rarity": "R",
         "konamiID": "11510448"
-    },
-    {
-        "name": "Face Card Fusion",
-        "rarity": "SR",
-        "konamiID": "1002800005"
     },
     {
         "name": "Witchcrafter Potterie",
@@ -55020,11 +55010,6 @@
         "konamiID": "29114773"
     },
     {
-        "name": "Joker's Straight",
-        "rarity": "SR",
-        "konamiID": "1002800004"
-    },
-    {
         "name": "Silent Sea Nettle",
         "rarity": "R",
         "konamiID": "31059809"
@@ -55248,11 +55233,6 @@
         "name": "Hyper Rank-Up-Magic Utopiforce",
         "rarity": "SR",
         "konamiID": "67517351"
-    },
-    {
-        "name": "Joker's Wild",
-        "rarity": "SR",
-        "konamiID": "1002800007"
     },
     {
         "name": "Magnet Induction",
@@ -55820,6 +55800,11 @@
         "konamiID": "34072799"
     },
     {
+        "name": "Alghoul Mazera",
+        "rarity": "R",
+        "konamiID": "45154513"
+    },
+    {
         "name": "Beetrooper Assault Roller",
         "rarity": "R",
         "konamiID": "51578214"
@@ -55920,6 +55905,11 @@
         "konamiID": "65626958"
     },
     {
+        "name": "Illegal Knight",
+        "rarity": "UR",
+        "konamiID": "42198835"
+    },
+    {
         "name": "Magician's Salvation",
         "rarity": "SR",
         "konamiID": "95477924"
@@ -55965,6 +55955,11 @@
         "konamiID": "48654323"
     },
     {
+        "name": "Alice, Lady of Lament",
+        "rarity": "SR",
+        "konamiID": "14504454"
+    },
+    {
         "name": "Vision with Eyes of Blue",
         "rarity": "R",
         "konamiID": "35659410"
@@ -55990,6 +55985,11 @@
         "konamiID": "17751597"
     },
     {
+        "name": "Skeletal Dragon Felgrand",
+        "rarity": "UR",
+        "konamiID": "65187687"
+    },
+    {
         "name": "Cybernetic Horizon",
         "rarity": "SR",
         "konamiID": "63031396"
@@ -55998,6 +55998,11 @@
         "name": "Dinomorphia Kentregina",
         "rarity": "UR",
         "konamiID": "48832775"
+    },
+    {
+        "name": "Parasomnia Pillow",
+        "rarity": "R",
+        "konamiID": "44092304"
     },
     {
         "name": "Epsilon The Magnet Warrior",
@@ -56058,6 +56063,11 @@
         "name": "Icejade Cenote Enion Cradle",
         "rarity": "UR",
         "konamiID": "7142724"
+    },
+    {
+        "name": "Immortal Dragon",
+        "rarity": "SR",
+        "konamiID": "91575236"
     },
     {
         "name": "Joruri-P.U.N.K. Nashiwari Surprise",
@@ -56163,6 +56173,11 @@
         "name": "Breath of Resurrection",
         "rarity": "R",
         "konamiID": "64018647"
+    },
+    {
+        "name": "Mad Mauler",
+        "rarity": "R",
+        "konamiID": "18760514"
     },
     {
         "name": "CXyz N.As.Ch. Knight",
@@ -56375,6 +56390,11 @@
         "konamiID": "65952776"
     },
     {
+        "name": "Devouring Sarcoughagus",
+        "rarity": "N",
+        "konamiID": "30037118"
+    },
+    {
         "name": "Epigonen, the Impersonation Invader",
         "rarity": "SR",
         "konamiID": "51611041"
@@ -56428,6 +56448,11 @@
         "name": "Ghostrick or Treat",
         "rarity": "SR",
         "konamiID": "27170599"
+    },
+    {
+        "name": "Haunted Zombies",
+        "rarity": "R",
+        "konamiID": "32335697"
     },
     {
         "name": "Heavy Beetrooper Mighty Neptune",
@@ -56520,9 +56545,119 @@
         "konamiID": "72860663"
     },
     {
+        "name": "Runick Allure",
+        "rarity": "N",
+        "konamiID": "29595202"
+    },
+    {
+        "name": "Farewelcome Labrynth",
+        "rarity": "R",
+        "konamiID": "32785578"
+    },
+    {
+        "name": "Geri the Runick Fangs",
+        "rarity": "SR",
+        "konamiID": "28373620"
+    },
+    {
         "name": "Hojo the Vaylantz Warrior",
         "rarity": "N",
         "konamiID": "88919365"
+    },
+    {
+        "name": "Hugin the Runick Wings",
+        "rarity": "UR",
+        "konamiID": "55990317"
+    },
+    {
+        "name": "Labrynth Archfiend",
+        "rarity": "R",
+        "konamiID": "48745395"
+    },
+    {
+        "name": "Labrynth Barrage",
+        "rarity": "SR",
+        "konamiID": "68779682"
+    },
+    {
+        "name": "Labrynth Chandraglier",
+        "rarity": "N",
+        "konamiID": "37629703"
+    },
+    {
+        "name": "Labrynth Cooclock",
+        "rarity": "R",
+        "konamiID": "2511"
+    },
+    {
+        "name": "Labrynth Labyrinth",
+        "rarity": "SR",
+        "konamiID": "33407125"
+    },
+    {
+        "name": "Lovely Labrynth of the Silver Castle",
+        "rarity": "UR",
+        "konamiID": "2347656"
+    },
+    {
+        "name": "Arianna the Labrynth Servant",
+        "rarity": "SR",
+        "konamiID": "1225009"
+    },
+    {
+        "name": "Ariane the Labrynth Servant",
+        "rarity": "SR",
+        "konamiID": "75730490"
+    },
+    {
+        "name": "Labrynth Set-Up",
+        "rarity": "N",
+        "konamiID": "69895264"
+    },
+    {
+        "name": "Labrynth Stovie Torbie",
+        "rarity": "N",
+        "konamiID": "74018812"
+    },
+    {
+        "name": "Munin the Runick Wings",
+        "rarity": "UR",
+        "konamiID": "92385016"
+    },
+    {
+        "name": "Runick Destruction",
+        "rarity": "SR",
+        "konamiID": "94445733"
+    },
+    {
+        "name": "Runick Dispelling",
+        "rarity": "R",
+        "konamiID": "66712905"
+    },
+    {
+        "name": "Runick Slumber",
+        "rarity": "R",
+        "konamiID": "67835547"
+    },
+    {
+        "name": "Runick Flashing Fire",
+        "rarity": "SR",
+        "konamiID": "68957034"
+    },
+    {
+        "name": "Runick Freezing Curses",
+        "rarity": "SR",
+        "konamiID": "30430448"
+    },
+    {
+        "name": "Runick Golden Droplet",
+        "rarity": "SR",
+        "konamiID": "20618850"
+    },
+    {
+        "name": "Runick Smiting Storm",
+        "rarity": "R",
+        "konamiID": "93229151"
     },
     {
         "name": "Nazuki the Vaylantz Ninja",
@@ -56530,9 +56665,19 @@
         "konamiID": "41525660"
     },
     {
+        "name": "Runick Tip",
+        "rarity": "UR",
+        "konamiID": "31562086"
+    },
+    {
         "name": "Shinonome the Vaylantz Priestess",
         "rarity": "SR",
         "konamiID": "49131917"
+    },
+    {
+        "name": "Runick Fountain",
+        "rarity": "UR",
+        "konamiID": "92107604"
     },
     {
         "name": "Vaylantz World - Konig Wissen",
@@ -56575,6 +56720,11 @@
         "konamiID": "41802073"
     },
     {
+        "name": "Welcome Labrynth",
+        "rarity": "UR",
+        "konamiID": "5380979"
+    },
+    {
         "name": "Branded in Central Dogmatika",
         "rarity": "N",
         "konamiID": "14220547"
@@ -56588,6 +56738,11 @@
         "name": "Clear New World",
         "rarity": "R",
         "konamiID": "21570001"
+    },
+    {
+        "name": "Changshi the Spiridao",
+        "rarity": "SR",
+        "konamiID": "76352503"
     },
     {
         "name": "Darton the Mechanical Monstrosity",
@@ -56608,6 +56763,11 @@
         "name": "Mega Fortress Whale",
         "rarity": "UR",
         "konamiID": "96546575"
+    },
+    {
+        "name": "Loris, Lady of Lament",
+        "rarity": "SR",
+        "konamiID": "50699850"
     },
     {
         "name": "Monster Rebirth",
@@ -56690,6 +56850,21 @@
         "konamiID": "55554175"
     },
     {
+        "name": "Predaplant Ambulomelides",
+        "rarity": "SR",
+        "konamiID": "66309175"
+    },
+    {
+        "name": "Predaplant Byblisp",
+        "rarity": "R",
+        "konamiID": "44932065"
+    },
+    {
+        "name": "Red-Eyes Zombie Dragon Lord",
+        "rarity": "UR",
+        "konamiID": "38192988"
+    },
+    {
         "name": "Scareclaw Alternative",
         "rarity": "SR",
         "konamiID": "5941982"
@@ -56698,6 +56873,11 @@
         "name": "Scareclaw Tri-Heart",
         "rarity": "UR",
         "konamiID": "59120809"
+    },
+    {
+        "name": "Predaplant Triantis",
+        "rarity": "N",
+        "konamiID": "17825378"
     },
     {
         "name": "Rebirth of the Seventh Emperors",
@@ -56718,6 +56898,11 @@
         "name": "Scareclaw Straddle",
         "rarity": "SR",
         "konamiID": "41619242"
+    },
+    {
+        "name": "Predaplant Bufolicula",
+        "rarity": "N",
+        "konamiID": "70427670"
     },
     {
         "name": "Scareclaw Acro",
@@ -56770,9 +56955,19 @@
         "konamiID": "52843699"
     },
     {
+        "name": "Sol and Luna",
+        "rarity": "SR",
+        "konamiID": "19739265"
+    },
+    {
         "name": "Starlit Papillon",
         "rarity": "R",
         "konamiID": "92341815"
+    },
+    {
+        "name": "Starving Venom Predapower Fusion Dragon",
+        "rarity": "UR",
+        "konamiID": "39915560"
     },
     {
         "name": "Swordsoul Strife",
@@ -56783,6 +56978,11 @@
         "name": "Soul of the Supreme King",
         "rarity": "UR",
         "konamiID": "92428405"
+    },
+    {
+        "name": "The Weather Painter Moonbow",
+        "rarity": "UR",
+        "konamiID": "95515518"
     },
     {
         "name": "Top Share",
@@ -56810,9 +57010,19 @@
         "konamiID": "82489470"
     },
     {
+        "name": "The Great Double Casted Caster",
+        "rarity": "N",
+        "konamiID": "83340560"
+    },
+    {
         "name": "The Zombie Vampire",
         "rarity": "UR",
         "konamiID": "73082255"
+    },
+    {
+        "name": "The Weather Forecast",
+        "rarity": "SR",
+        "konamiID": "18720257"
     },
     {
         "name": "Thunder Discharge",
@@ -56855,6 +57065,11 @@
         "konamiID": "30680659"
     },
     {
+        "name": "Zombie Reborn",
+        "rarity": "SR",
+        "konamiID": "19942835"
+    },
+    {
         "name": "Zaralaam the Dark Palace",
         "rarity": "N",
         "konamiID": "64230128"
@@ -56868,6 +57083,11 @@
         "name": "Omega Judgment",
         "rarity": "N",
         "konamiID": "53923690"
+    },
+    {
+        "name": "Ultimate Slayer",
+        "rarity": "UR",
+        "konamiID": "2263869"
     },
     {
         "name": "Mamonaka the Vaylantz United",
