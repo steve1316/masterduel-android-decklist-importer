@@ -55850,6 +55850,11 @@
         "konamiID": "28292031"
     },
     {
+        "name": "Dinomorphia Rexterm",
+        "rarity": "UR",
+        "konamiID": "92798873"
+    },
+    {
         "name": "Dogmatikamacabre",
         "rarity": "SR",
         "konamiID": "60921537"
@@ -55960,6 +55965,11 @@
         "konamiID": "14504454"
     },
     {
+        "name": "Amphibious Bugroth MK-11",
+        "rarity": "N",
+        "konamiID": "4754691"
+    },
+    {
         "name": "Vision with Eyes of Blue",
         "rarity": "R",
         "konamiID": "35659410"
@@ -55998,6 +56008,11 @@
         "name": "Dinomorphia Kentregina",
         "rarity": "UR",
         "konamiID": "48832775"
+    },
+    {
+        "name": "Divine Dragon Titanomakhia",
+        "rarity": "R",
+        "konamiID": "32975247"
     },
     {
         "name": "Parasomnia Pillow",
@@ -56240,6 +56255,11 @@
         "konamiID": "39354437"
     },
     {
+        "name": "Icejade Curse",
+        "rarity": "SR",
+        "konamiID": "83670388"
+    },
+    {
         "name": "Icejade Kosmochlor",
         "rarity": "UR",
         "konamiID": "3355732"
@@ -56258,6 +56278,11 @@
         "name": "Leafplace Plaice",
         "rarity": "N",
         "konamiID": "50599453"
+    },
+    {
+        "name": "Supreme Sea Mare",
+        "rarity": "SR",
+        "konamiID": "31259606"
     },
     {
         "name": "Marincess Springirl",
@@ -56335,11 +56360,6 @@
         "konamiID": "22125101"
     },
     {
-        "name": "Black Rose Dragon",
-        "rarity": "UR",
-        "konamiID": "73580472"
-    },
-    {
         "name": "Branded Loss",
         "rarity": "R",
         "konamiID": "10065487"
@@ -56355,6 +56375,11 @@
         "konamiID": "24226942"
     },
     {
+        "name": "D.D. Assault Carrier",
+        "rarity": "N",
+        "konamiID": "56790702"
+    },
+    {
         "name": "D/D Gryphon",
         "rarity": "SR",
         "konamiID": "28406301"
@@ -56363,6 +56388,11 @@
         "name": "D/D/D Deviser King Deus Machinex",
         "rarity": "UR",
         "konamiID": "46593546"
+    },
+    {
+        "name": "Dinomorphia Frenzy",
+        "rarity": "SR",
+        "konamiID": "78420796"
     },
     {
         "name": "Dinomorphia Shell",
@@ -56543,6 +56573,11 @@
         "name": "Vampire Fascinator",
         "rarity": "SR",
         "konamiID": "72860663"
+    },
+    {
+        "name": "Cassimolar",
+        "rarity": "R",
+        "konamiID": "12527118"
     },
     {
         "name": "Runick Allure",
@@ -56735,6 +56770,11 @@
         "konamiID": "1041278"
     },
     {
+        "name": "Gunkan Suship Shari Red",
+        "rarity": "SR",
+        "konamiID": "63748694"
+    },
+    {
         "name": "Clear New World",
         "rarity": "R",
         "konamiID": "21570001"
@@ -56750,6 +56790,26 @@
         "konamiID": "86271510"
     },
     {
+        "name": "Dragonbite",
+        "rarity": "R",
+        "konamiID": "84462118"
+    },
+    {
+        "name": "Flowerdino",
+        "rarity": "N",
+        "konamiID": "10851853"
+    },
+    {
+        "name": "Icejade Creation Aegirocassis",
+        "rarity": "SR",
+        "konamiID": "1295442"
+    },
+    {
+        "name": "Hydralander Orbit",
+        "rarity": "N",
+        "konamiID": "93953933"
+    },
+    {
         "name": "Imprudent Intrusion",
         "rarity": "N",
         "konamiID": "26357901"
@@ -56763,6 +56823,11 @@
         "name": "Mega Fortress Whale",
         "rarity": "UR",
         "konamiID": "96546575"
+    },
+    {
+        "name": "Sunlit Sentinel",
+        "rarity": "N",
+        "konamiID": "78360952"
     },
     {
         "name": "Loris, Lady of Lament",
@@ -56783,6 +56848,11 @@
         "name": "Magicore Warrior of the Relics",
         "rarity": "R",
         "konamiID": "66078354"
+    },
+    {
+        "name": "Materiactor Annulus",
+        "rarity": "SR",
+        "konamiID": "17008760"
     },
     {
         "name": "Mirrorjade the Iceblade Dragon",
@@ -56905,6 +56975,11 @@
         "konamiID": "70427670"
     },
     {
+        "name": "Rock Scales",
+        "rarity": "N",
+        "konamiID": "57946551"
+    },
+    {
         "name": "Scareclaw Acro",
         "rarity": "N",
         "konamiID": "46877100"
@@ -56970,6 +57045,11 @@
         "konamiID": "39915560"
     },
     {
+        "name": "Terrors of the Overroot",
+        "rarity": "UR",
+        "konamiID": "63086455"
+    },
+    {
         "name": "Swordsoul Strife",
         "rarity": "R",
         "konamiID": "99137266"
@@ -57020,6 +57100,11 @@
         "konamiID": "73082255"
     },
     {
+        "name": "Double Dust Tornado Twins",
+        "rarity": "N",
+        "konamiID": "35479109"
+    },
+    {
         "name": "The Weather Forecast",
         "rarity": "SR",
         "konamiID": "18720257"
@@ -57033,6 +57118,11 @@
         "name": "Uradora of Fate",
         "rarity": "UR",
         "konamiID": "27753563"
+    },
+    {
+        "name": "Votis",
+        "rarity": "R",
+        "konamiID": "75311421"
     },
     {
         "name": "Wandering Gryphon Rider",
@@ -57063,6 +57153,11 @@
         "name": "Water Enchantress of the Temple",
         "rarity": "UR",
         "konamiID": "30680659"
+    },
+    {
+        "name": "Yamatako Orochi",
+        "rarity": "SR",
+        "konamiID": "4632019"
     },
     {
         "name": "Zombie Reborn",
