@@ -1,13 +1,13 @@
 <AppUpdater>
   <update>
-    <latestVersion>1.7.0</latestVersion>
+    <latestVersion>1.8.0</latestVersion>
     <url>https://github.com/steve1316/masterduel-android-decklist-importer/releases</url>
     <releaseNotes>
-v1.7.0 - Changelog
+v1.8.0 - Changelog
 
 New 
 ---
-- Update data up to the Mysterious Labyrinth selection pack and the Immortal Glory structure deck.
+- Update data up to the Beginning of Turmoil selection pack.
 
     </releaseNotes>
   </update>
